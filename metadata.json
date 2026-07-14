@@ -1,0 +1,6 @@
+{
+  "name": "Raj Sir Delhi",
+  "description": "Delhi's most trusted premium language coaching institute for Spoken English, German, and Chinese.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
