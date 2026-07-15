@@ -181,7 +181,7 @@ export default function YouTube() {
               {/* Stats Block */}
               <div className="flex flex-row gap-8 justify-center md:justify-start items-center">
                 <div className="text-left">
-                  <p className="text-3xl font-extrabold text-white tracking-tight">520K+</p>
+                  <p className="text-3xl font-extrabold text-white tracking-tight">7 Thousand+</p>
                   <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Subscribers</p>
                 </div>
                 <div className="h-8 w-px bg-blue-400/30"></div>
