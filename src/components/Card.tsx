@@ -15,7 +15,7 @@ export default function Card({
   hoverEffect = true,
   ...props
 }: CardProps) {
-  const baseStyle = "rounded-2xl bg-white p-6 border border-gray-100/80 shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-300";
+  const baseStyle = "rounded-2xl bg-white p-6 border border-gray-100/80 shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-200";
   const hoverStyle = hoverEffect ? "hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(0,0,0,0.08)]" : "";
 
   return (

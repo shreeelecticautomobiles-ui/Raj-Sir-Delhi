@@ -50,37 +50,41 @@ export interface CaseStudy {
 }
 
 export const testimonials: Testimonial[] = [
+  /* CLIENT: confirm this is a real review, replace avatar with real photo or remove avatar entirely */
   {
     id: 't-1',
     name: 'Rahul Sharma',
     role: 'Software Engineer @ Google',
     quote: "I came from a Hindi-medium school in Bihar and struggled to speak during stand-up meetings. Raj Sir's Hindi-to-English translation methodology and continuous public speaking drills completely removed my fear. I cracked my Google interview 6 months later!",
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    avatar: '',
   },
+  /* CLIENT: confirm this is a real review, replace avatar with real photo or remove avatar entirely */
   {
     id: 't-2',
     name: 'Priya Verma',
     role: 'MBA Student @ FMS Delhi',
     quote: "The group discussions and daily debate exercises at Raj Sir's institute are top-notch. They don't just teach grammar rules; they build your confidence, pronunciation, and vocabulary to present in corporate settings without hesitation.",
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    avatar: '',
   },
+  /* CLIENT: confirm this is a real review, replace avatar with real photo or remove avatar entirely */
   {
     id: 't-3',
     name: 'Amit Mehra',
     role: 'Project Manager @ Accenture',
     quote: "For working professionals, Raj Sir Delhi Spoken English is a game-changer. The evening batches are highly flexible, and the focus on neutral accent training and official email drafting helped me secure my promotion and handle client calls.",
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+    avatar: '',
   },
+  /* CLIENT: confirm this is a real review, replace avatar with real photo or remove avatar entirely */
   {
     id: 't-4',
     name: 'Shweta Goel',
     role: 'Aviation Aspirant',
     quote: "I was extremely shy and would freeze when asked to introduce myself. Raj Sir's personal guidance and the friendly, judgment-free classroom atmosphere helped me find my voice. I have now cleared my cabin crew rounds!",
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80',
+    avatar: '',
   }
 ];
 

@@ -24,6 +24,8 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import CountUp from '../components/CountUp';
+import ScrollReveal from '../components/ScrollReveal';
 import { courses, testimonials, videos } from '../data';
 
 export default function Home() {
@@ -47,11 +49,49 @@ export default function Home() {
     navigate('/contact');
   };
 
+  const getWhatsAppLink = (id: string) => {
+    if (id === 'c-english') {
+      return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Spoken%20English%20Mastery%20course%20-%20please%20share%20batch%20timings";
+    } else if (id === 'c-german') {
+      return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20German%20course%20-%20please%20share%20details";
+    } else {
+      return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Chinese%20course%20-%20please%20share%20details";
+    }
+  };
+
+  const getInitials = (name: string) => {
+    const parts = name.split(' ');
+    if (parts.length >= 2) {
+      return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
+
+  const getInitialsBg = (name: string) => {
+    const colors = [
+      'bg-red-100 text-red-700 border border-red-200',
+      'bg-blue-100 text-blue-700 border border-blue-200',
+      'bg-green-100 text-green-700 border border-green-200',
+      'bg-yellow-100 text-yellow-700 border border-yellow-200',
+      'bg-purple-100 text-purple-700 border border-purple-200',
+      'bg-pink-100 text-pink-700 border border-pink-200',
+      'bg-indigo-100 text-indigo-700 border border-indigo-200',
+      'bg-teal-100 text-teal-700 border border-teal-200',
+    ];
+    let sum = 0;
+    for (let i = 0; i < name.length; i++) {
+      sum += name.charCodeAt(i);
+    }
+    const index = sum % colors.length;
+    return colors[index];
+  };
+
   const whyUsData = [
     {
       id: 'why-1',
-      title: '1000+ Reviews',
-      desc: 'Our students consistently rate us 5 stars on Google for delivering rapid, real-world spoken language confidence.',
+      /* SOURCE: live Google Maps listing, update if this changes */
+      title: '1,081 Google Reviews',
+      desc: 'Our students consistently rate us 5.0 stars on Google for delivering rapid, real-world spoken language confidence.',
       icon: <Star className="h-6 w-6 text-accent-yellow" fill="#FBBF24" />
     },
     {
@@ -92,7 +132,7 @@ export default function Home() {
       <section id="hero-section" className="relative overflow-hidden bg-bg-main pt-12 pb-20 md:pt-16 md:pb-28">
         <div className="absolute inset-0 bg-radial-gradient from-blue-50/40 via-transparent to-transparent opacity-70"></div>
         
-        <div className="mx-auto max-w-7xl px-6 md:px-8 relative grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 relative grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
           {/* Hero Left Info */}
           <div id="hero-info" className="lg:col-span-7 space-y-6 text-left">
             <span
@@ -108,7 +148,8 @@ export default function Home() {
             </h1>
             
             <p id="hero-subtext" className="text-text-secondary text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl">
-              Join 100,000+ successful students. Master English, German, and Chinese with our unique Hindi-to-English methodology. 1000+ 5-star Google reviews.
+              {/* SOURCE: live Google Maps listing, update if this changes */}
+              Join 10,000+ successful students. Master English, German, and Chinese with our unique Hindi-to-English methodology. 1,081 Verified Google Reviews.
             </p>
             
             {/* Call To Actions */}
@@ -124,10 +165,10 @@ export default function Home() {
               </Button>
               <a
                 id="hero-whatsapp-btn"
-                href="https://wa.me/919015424048"
+                href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-1 hover:shadow-lg transition-all"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-600" />
                 <span>WhatsApp</span>
@@ -137,23 +178,17 @@ export default function Home() {
             {/* Social Trust row */}
             <div id="hero-trust" className="flex items-center gap-4 pt-6 border-t border-gray-100/80">
               <div className="flex -space-x-3 overflow-hidden">
-                <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop"
-                  alt="Student 1"
-                />
-                <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop"
-                  alt="Student 2"
-                />
-                <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop"
-                  alt="Student 3"
-                />
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 text-xs font-bold ring-2 ring-white border border-blue-200">
+                  RS
+                </div>
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold ring-2 ring-white border border-emerald-200">
+                  PV
+                </div>
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold ring-2 ring-white border border-indigo-200">
+                  AM
+                </div>
                 <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white text-xs font-bold ring-2 ring-white">
-                  +10k
+                  +1k
                 </div>
               </div>
               <div className="text-sm">
@@ -163,9 +198,11 @@ export default function Home() {
                   <Star className="h-4 w-4 fill-current text-accent-yellow" />
                   <Star className="h-4 w-4 fill-current text-accent-yellow" />
                   <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <span className="ml-1.5 text-text-primary text-sm font-bold">4.9/5</span>
+                  {/* SOURCE: live Google Maps listing, update if this changes */}
+                  <span className="ml-1.5 text-text-primary text-sm font-bold">5.0/5</span>
                 </div>
-                <p className="text-xs text-text-secondary">1,200+ Verified Google Reviews</p>
+                {/* SOURCE: live Google Maps listing, update if this changes */}
+                <p className="text-xs text-text-secondary font-medium">1,081 Verified Google Reviews</p>
               </div>
             </div>
           </div>
@@ -176,13 +213,17 @@ export default function Home() {
               {/* Backglow blur decorative circle */}
               <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
               
-              <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-white aspect-[4/5] relative">
-                <img
-                  src="https://i.ibb.co/jkG8VPTt/Screenshot-2026-07-14-233324.png"
-                  alt="Raj Sir speaking/teaching in Delhi classroom"
-                  className="object-cover w-full h-full object-top filter hover:scale-105 transition-all duration-700"
-                  referrerPolicy="no-referrer"
-                />
+              {/* CLIENT: replace with a real photo of Raj Sir's face, ideally teaching a class, OR a 15-20s muted looping video clip of a live class */}
+              <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-gray-100 aspect-[4/5] relative flex flex-col items-center justify-center p-8 text-center space-y-4">
+                <div className="h-16 w-16 rounded-full bg-white flex items-center justify-center shadow-md text-primary">
+                  <Users2 className="h-8 w-8" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="font-sans font-bold text-sm text-text-primary">Raj Sir Classroom Photo / Video</h3>
+                  <p className="text-[10px] text-text-secondary max-w-[220px] mx-auto leading-relaxed">
+                    Real classroom snapshot or 15s muted looping class session video clip
+                  </p>
+                </div>
               </div>
 
               {/* Next batch starting card overlay */}
@@ -200,23 +241,29 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 2. TRUST BAR STRIP (4 items) */}
       <section id="trust-strip" className="bg-white border-y border-gray-100/60 py-8">
-        <div className="mx-auto max-w-7xl px-6 md:px-8 grid grid-cols-2 gap-y-6 md:grid-cols-4 md:gap-x-4">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 grid grid-cols-2 gap-y-6 md:grid-cols-4 md:gap-x-4">
           <div id="trust-item-1" className="flex items-center justify-center gap-3 border-r border-gray-100 last:border-0">
             <Star className="h-6 w-6 text-accent-yellow shrink-0" fill="#FBBF24" />
             <div className="text-left">
-              <p className="text-sm font-bold text-text-primary leading-none">5.0 Rating</p>
+              {/* SOURCE: live Google Maps listing, update if this changes */}
+              <p className="text-sm font-bold text-text-primary leading-none">
+                <CountUp end={5.0} decimals={1} suffix=" Rating" />
+              </p>
               <p className="text-xs text-text-secondary mt-0.5">Top Spoken English</p>
             </div>
           </div>
           <div id="trust-item-2" className="flex items-center justify-center gap-3 md:border-r border-gray-100 last:border-0">
             <Award className="h-6 w-6 text-primary shrink-0" />
             <div className="text-left">
-              <p className="text-sm font-bold text-text-primary leading-none">1,000+ Reviews</p>
+              {/* SOURCE: live Google Maps listing, update if this changes */}
+              <p className="text-sm font-bold text-text-primary leading-none">
+                <CountUp end={1081} suffix=" Reviews" />
+              </p>
               <p className="text-xs text-text-secondary mt-0.5">Verified Students</p>
             </div>
           </div>
@@ -234,12 +281,12 @@ export default function Home() {
               <p className="text-xs text-text-secondary mt-0.5">Standard Methodology</p>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 3. WHY LEARN FROM RAJ SIR */}
       <section id="why-us-section" className="bg-bg-nest py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
           {/* Heading */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-primary">Unlocking Opportunities</span>
@@ -265,12 +312,12 @@ export default function Home() {
               </Card>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 4. PREMIUM COURSES SECTION (with carousel controls) */}
       <section id="courses-carousel-section" className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
           
           {/* Header Row */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
@@ -307,11 +354,22 @@ export default function Home() {
             
             {/* Course Image Side */}
             <div className="lg:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 relative shadow-md">
-              <img
-                src={courses[courseIndex].image}
-                alt={courses[courseIndex].title}
-                className="object-cover w-full h-full hover:scale-105 transition-all duration-500"
-              />
+              {courses[courseIndex].id === 'c-english' ? (
+                /* CLIENT: replace with real classroom/students photo */
+                <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                  <Users2 className="h-10 w-10 text-text-secondary" />
+                  <div>
+                    <h4 className="font-sans font-bold text-xs text-text-primary">Real Classroom & Students Photo</h4>
+                    <p className="text-[10px] text-text-secondary mt-0.5">Real classroom or interactive teaching session</p>
+                  </div>
+                </div>
+              ) : (
+                <img
+                  src={courses[courseIndex].image}
+                  alt={courses[courseIndex].title}
+                  className="object-cover w-full h-full hover:scale-105 transition-all duration-500"
+                />
+              )}
               {courses[courseIndex].badge && (
                 <span className="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md shadow-sm">
                   {courses[courseIndex].badge}
@@ -349,20 +407,28 @@ export default function Home() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3 pt-2">
-                <Button
+                <a
                   id={`carousel-enroll-${courses[courseIndex].id}`}
-                  variant={courses[courseIndex].isBestSeller ? "primary" : "secondary"}
-                  onClick={() => navigate('/contact')}
+                  href={getWhatsAppLink(courses[courseIndex].id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer ${
+                    courses[courseIndex].isBestSeller 
+                      ? "bg-primary hover:bg-primary-dark text-white shadow-md hover:-translate-y-[3px] hover:shadow-lg" 
+                      : "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-[3px] transition-all"
+                  }`}
                 >
                   {courses[courseIndex].buttonText}
-                </Button>
-                <Button
+                </a>
+                <a
                   id={`carousel-syllabus-${courses[courseIndex].id}`}
-                  variant="dark"
-                  onClick={() => navigate('/courses')}
+                  href={getWhatsAppLink(courses[courseIndex].id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text shadow-md hover:-translate-y-[3px] hover:shadow-lg"
                 >
                   View Details
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -383,12 +449,12 @@ export default function Home() {
             ))}
           </div>
 
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 5. WHAT OUR STUDENTS SAY */}
       <section id="testimonials-section" className="bg-bg-alt/40 py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
           {/* Heading */}
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-primary">Student Reviews</span>
@@ -396,7 +462,8 @@ export default function Home() {
               What Our Students Say
             </h2>
             <div className="flex items-center justify-center gap-2 pt-2">
-              <span className="text-lg font-bold text-text-primary">4.9/5.0</span>
+              {/* SOURCE: live Google Maps listing, update if this changes */}
+              <span className="text-lg font-bold text-text-primary">5.0/5.0</span>
               <div className="flex text-accent-yellow font-semibold">
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
@@ -404,7 +471,8 @@ export default function Home() {
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
               </div>
-              <span className="text-xs text-text-secondary font-medium">(1,248 Google Reviews)</span>
+              {/* SOURCE: live Google Maps listing, update if this changes */}
+              <span className="text-xs text-text-secondary font-medium">(1,081 Google Reviews)</span>
             </div>
           </div>
 
@@ -425,12 +493,18 @@ export default function Home() {
                 </div>
                 {/* Author Info */}
                 <div className="flex items-center gap-3 pt-6 border-t border-gray-50 mt-6">
-                  <img
-                    src={item.avatar}
-                    alt={item.name}
-                    className="h-10 w-10 rounded-full object-cover shrink-0"
-                    referrerPolicy="no-referrer"
-                  />
+                  {item.avatar ? (
+                    <img
+                      src={item.avatar}
+                      alt={item.name}
+                      className="h-10 w-10 rounded-full object-cover shrink-0"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className={`h-10 w-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${getInitialsBg(item.name)}`}>
+                      {getInitials(item.name)}
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-sans font-bold text-sm text-text-primary leading-tight">{item.name}</h4>
                     <p className="text-xs text-text-secondary">{item.role}</p>
@@ -449,12 +523,12 @@ export default function Home() {
               View All Student Reviews
             </Button>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 6. LEARN FOR FREE ON YOUTUBE (Dark rounded card section) */}
       <section id="youtube-section" className="bg-bg-main py-16">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="bg-dark-inverse text-dark-text rounded-3xl py-12 px-6 md:px-12 space-y-12 shadow-xl relative overflow-hidden">
             
             {/* Header Row */}
@@ -523,12 +597,12 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 6.5 YOUTUBE CTA BANNER CARD */}
       <section id="youtube-cta-banner" className="bg-bg-main pb-16">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="bg-primary text-white rounded-[32px] py-12 px-8 md:px-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             
             {/* Left side: Heading & Stats */}
@@ -537,15 +611,15 @@ export default function Home() {
                 Never miss a lesson. Subscribe for daily updates.
               </h3>
               
-              {/* Stats Block */}
+              {/* CLIENT: insert real subscriber count and real video count from YouTube Studio before launch */}
               <div className="flex flex-row gap-8 justify-center md:justify-start items-center">
                 <div className="text-left">
-                  <p className="text-3xl font-extrabold text-white tracking-tight">7 Thousand+</p>
+                  <p className="text-3xl font-extrabold text-white tracking-tight">[7K+]</p>
                   <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Subscribers</p>
                 </div>
                 <div className="h-8 w-px bg-blue-400/30"></div>
                 <div className="text-left">
-                  <p className="text-3xl font-extrabold text-white tracking-tight">1,200+</p>
+                  <p className="text-3xl font-extrabold text-white tracking-tight">[1,200+]</p>
                   <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Videos Published</p>
                 </div>
               </div>
@@ -569,12 +643,12 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* 4. REAL GOOGLE MAP EMBED */}
       <section id="google-map-section-home" className="bg-bg-main py-16 border-t border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Visit Our Academy details */}
@@ -647,7 +721,7 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Video Modal Player Overlay */}

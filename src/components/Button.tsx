@@ -18,30 +18,30 @@ export default function Button({
   onClick,
   ...props
 }: ButtonProps) {
-  const baseStyle = "px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-300 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer";
+  const baseStyle = "px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer";
   
   let variantStyle = '';
   switch (variant) {
     case 'primary':
-      variantStyle = "bg-primary hover:bg-primary-dark text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg";
+      variantStyle = "bg-primary hover:bg-primary-dark text-white shadow-md hover:-translate-y-[3px] hover:shadow-xl hover:shadow-primary/10";
       break;
     case 'secondary':
-      variantStyle = "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-colors";
+      variantStyle = "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-[3px] hover:shadow-xl hover:shadow-primary/10 transition-colors";
       break;
     case 'dark':
-      variantStyle = "bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text shadow-md hover:-translate-y-0.5 hover:shadow-lg";
+      variantStyle = "bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text shadow-md hover:-translate-y-[3px] hover:shadow-xl";
       break;
     case 'yellow':
-      variantStyle = "bg-accent-yellow hover:bg-accent-yellow-container text-text-primary shadow-sm hover:-translate-y-0.5 hover:shadow-md font-bold";
+      variantStyle = "bg-accent-yellow hover:bg-accent-yellow-container text-text-primary shadow-sm hover:-translate-y-[3px] hover:shadow-xl font-bold";
       break;
     case 'outline-white':
-      variantStyle = "border-2 border-white text-white hover:bg-white hover:text-primary hover:-translate-y-0.5 transition-all";
+      variantStyle = "border-2 border-white text-white hover:bg-white hover:text-primary hover:-translate-y-[3px] hover:shadow-xl transition-all";
       break;
     case 'solid-white':
-      variantStyle = "bg-white text-primary hover:bg-bg-nest shadow-md hover:-translate-y-0.5 hover:shadow-lg";
+      variantStyle = "bg-white text-primary hover:bg-bg-nest shadow-md hover:-translate-y-[3px] hover:shadow-xl";
       break;
     default:
-      variantStyle = "bg-primary hover:bg-primary-dark text-white";
+      variantStyle = "bg-primary hover:bg-primary-dark text-white hover:-translate-y-[3px] hover:shadow-xl";
   }
 
   return (
