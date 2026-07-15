@@ -116,11 +116,11 @@ export default function Navbar() {
               </Button>
               <a
                 id="mobile-nav-call-btn"
-                href="tel:+919876543210"
+                href="tel:+919015424048"
                 className="flex items-center justify-center gap-2 w-full py-3 text-center border border-gray-200 rounded-lg text-text-primary font-semibold text-sm hover:bg-gray-50 transition-colors"
               >
                 <PhoneCall className="h-4 w-4 text-tertiary" />
-                Call +91 98765 43210
+                Call +91 90154 24048
               </a>
             </div>
           </div>

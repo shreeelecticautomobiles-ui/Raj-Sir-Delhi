@@ -124,7 +124,7 @@ export default function Home() {
               </Button>
               <a
                 id="hero-whatsapp-btn"
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919015424048"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 transition-all"
@@ -564,7 +564,7 @@ export default function Home() {
                   <div className="space-y-1">
                     <h4 className="font-sans font-bold text-base text-text-primary">Direct Hotline</h4>
                     <p className="text-text-secondary text-sm leading-relaxed">
-                      <a href="tel:+919876543210" className="hover:text-primary font-semibold transition-colors">+91 98765 43210</a>
+                      <a href="tel:+919015424048" className="hover:text-primary font-semibold transition-colors">+91 90154 24048</a>
                       <span className="text-xs text-text-secondary block mt-0.5">(Ask for Course Counselors)</span>
                     </p>
                   </div>

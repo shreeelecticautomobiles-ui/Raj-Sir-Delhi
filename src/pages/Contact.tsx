@@ -171,7 +171,7 @@ export default function Contact() {
                 <div className="pt-2">
                   <a
                     id="promo-reserve-btn"
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/919015424048"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all"
@@ -204,7 +204,7 @@ export default function Contact() {
                 <Phone className="h-5 w-5 text-primary" />
                 <h4 className="font-sans font-bold text-xs text-text-primary uppercase tracking-wider">Direct Hotline</h4>
                 <p className="text-text-secondary text-[11px] leading-relaxed">
-                  <a href="tel:+919876543210" className="hover:text-primary font-semibold transition-colors">+91 98765 43210</a>
+                  <a href="tel:+919015424048" className="hover:text-primary font-semibold transition-colors">+91 90154 24048</a>
                   <br />Ask for Counselors
                 </p>
               </div>
@@ -214,7 +214,7 @@ export default function Contact() {
                 <MessageSquare className="h-5 w-5 text-emerald-500" />
                 <h4 className="font-sans font-bold text-xs text-text-primary uppercase tracking-wider">Chat Desk</h4>
                 <p className="text-text-secondary text-[11px] leading-relaxed">
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 font-semibold transition-colors">+91 98765 43210</a>
+                  <a href="https://wa.me/919015424048" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 font-semibold transition-colors">+91 90154 24048</a>
                   <br />Instant Reply
                 </p>
               </div>

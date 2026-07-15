@@ -88,7 +88,7 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary shrink-0" />
-              <a href="tel:+919876543210" className="hover:text-primary transition-colors">+91 98765 43210</a>
+              <a href="tel:+919015424048" className="hover:text-primary transition-colors">+91 90154 24048</a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary shrink-0" />

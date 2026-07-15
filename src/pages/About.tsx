@@ -84,7 +84,7 @@ export default function About() {
               <div className="absolute -left-6 bottom-1/4 bg-white p-3.5 rounded-2xl border border-gray-50 shadow-lg flex flex-col gap-2">
                 <a
                   id="portrait-whatsapp"
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919015424048"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-sm"
@@ -94,7 +94,7 @@ export default function About() {
                 </a>
                 <a
                   id="portrait-call"
-                  href="tel:+919876543210"
+                  href="tel:+919015424048"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-tertiary hover:bg-tertiary-dark text-white transition-all shadow-sm"
                   title="Call Raj Sir"
                 >

@@ -7,7 +7,7 @@ export default function FloatingActions() {
       {/* Call Button */}
       <a
         id="floating-call-btn"
-        href="tel:+919876543210"
+        href="tel:+919015424048"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-tertiary hover:bg-tertiary-dark text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
         title="Call Raj Sir"
       >
@@ -17,7 +17,7 @@ export default function FloatingActions() {
       {/* WhatsApp Button */}
       <a
         id="floating-whatsapp-btn"
-        href="https://wa.me/919876543210"
+        href="https://wa.me/919015424048"
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
