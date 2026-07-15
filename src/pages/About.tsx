@@ -43,7 +43,7 @@ export default function About() {
             </h1>
             
             <p id="about-subtext" className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-xl">
-              With over 15+ years of core experience bridging local dialects and global communication standards, Raj Sir has transformed the spoken capabilities of thousands who previously struggled with translation hesitation.
+              With over 25+ years of core experience bridging local dialects and global communication standards, Raj Sir has transformed the spoken capabilities of thousands who previously struggled with translation hesitation.
             </p>
 
             <div className="pt-2">
@@ -143,7 +143,7 @@ export default function About() {
             <div className="lg:col-span-5 rounded-2xl bg-primary text-white p-8 shadow-md flex flex-col justify-between text-left">
               <div className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-md">Our Achievements</span>
-                <h3 className="font-sans font-extrabold text-5xl leading-none">15+ Years</h3>
+                <h3 className="font-sans font-extrabold text-5xl leading-none">25+ Years</h3>
                 <p className="text-blue-100 text-sm leading-relaxed font-medium">
                   Empowering language skills across students and corporate professionals in Delhi NCR.
                 </p>
