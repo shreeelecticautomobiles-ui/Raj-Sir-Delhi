@@ -1,29 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, MapPin, Phone, Mail, Youtube, CheckCircle2, Instagram } from 'lucide-react';
-import Button from './Button';
+import { Globe, MapPin, Phone, Mail, Youtube, Instagram } from 'lucide-react';
 
 interface FooterProps {
   showSeoColumn?: boolean;
 }
 
 export default function Footer({ showSeoColumn = false }: FooterProps) {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 5000);
-    }
-  };
-
   return (
     <footer id="main-footer" className="bg-dark-inverse text-dark-text pt-16 pb-8 border-t border-gray-800/60">
       <div className={`mx-auto max-w-7xl px-6 md:px-8 grid grid-cols-1 gap-12 sm:grid-cols-2 ${
-        showSeoColumn ? 'md:grid-cols-3 lg:grid-cols-5' : 'md:grid-cols-4 lg:grid-cols-4'
+        showSeoColumn ? 'md:grid-cols-3 lg:grid-cols-4' : 'md:grid-cols-3 lg:grid-cols-3'
       }`}>
         {/* Brand Blurb */}
         <div id="footer-col-brand" className="space-y-4">
@@ -118,45 +105,22 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
           </div>
         )}
 
-        {/* Newsletter Column */}
-        <div id="footer-col-newsletter" className="space-y-4">
-          <h3 className="font-sans font-semibold text-white tracking-wider text-sm uppercase">Newsletter</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            Subscribe to get free learning materials, batch announcements, and confidence-building tips directly in your inbox.
-          </p>
-          {subscribed ? (
-            <div id="newsletter-success" className="flex items-center gap-2 p-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-semibold">
-              <CheckCircle2 className="h-4 w-4 shrink-0" />
-              <span>Thanks for subscribing! Check your inbox soon.</span>
-            </div>
-          ) : (
-            <form id="footer-newsletter-form" onSubmit={handleSubscribe} className="flex flex-col gap-2 sm:flex-row md:flex-col lg:flex-row">
-              <input
-                id="footer-email-input"
-                type="email"
-                placeholder="Enter your email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 text-sm bg-dark-inverse-alt border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-              <Button
-                id="footer-subscribe-btn"
-                variant="yellow"
-                type="submit"
-                className="w-full sm:w-auto md:w-full lg:w-auto shrink-0 !py-2 !px-4 text-xs font-bold"
-              >
-                Subscribe
-              </Button>
-            </form>
-          )}
-        </div>
       </div>
 
       {/* Bottom Bar */}
       <div id="footer-bottom-bar" className="mx-auto max-w-7xl px-6 md:px-8 mt-12 pt-8 border-t border-gray-800/40 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-xs text-gray-500 text-center sm:text-left">
           © {new Date().getFullYear()} Raj Sir Delhi Spoken English. All rights reserved.
+          <span className="mx-2">|</span>
+          Developed by{' '}
+          <a
+            href="https://www.divyanshwebservices.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-yellow hover:underline font-bold transition-all"
+          >
+            DIVYANSH WEB SERVICES
+          </a>
         </p>
         <div className="flex gap-6 text-xs text-gray-500">
           <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
