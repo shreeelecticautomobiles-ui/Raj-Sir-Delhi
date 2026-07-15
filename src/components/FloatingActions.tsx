@@ -11,9 +11,7 @@ export default function FloatingActions() {
     <>
       <div 
         id="floating-actions-container" 
-        className={`fixed right-6 z-50 flex flex-col gap-3 transition-all duration-300 ${
-          isContactPage ? 'bottom-6' : 'bottom-24 md:bottom-6'
-        }`}
+        className="fixed right-6 z-50 flex flex-col gap-3 bottom-6"
       >
         {/* Call Button */}
         <a
@@ -42,22 +40,6 @@ export default function FloatingActions() {
           </a>
         </div>
       </div>
-
-      {/* Mobile Sticky Bottom Bar (only below 768px, stays visible, doesn't overlap due to bottom-24 height of floating controls) */}
-      {!isContactPage && (
-        <div 
-          id="mobile-sticky-bottom-bar"
-          className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-3.5 z-40 shadow-[0_-8px_30px_rgba(0,0,0,0.08)]"
-        >
-          <button
-            id="mobile-sticky-book-btn"
-            onClick={() => navigate('/contact')}
-            className="w-full bg-[#2563EB] hover:bg-[#004AC6] text-white py-3.5 px-4 rounded-lg font-sans font-bold text-sm uppercase tracking-wider transition-all duration-200 active:scale-[0.98] shadow-md flex items-center justify-center gap-2"
-          >
-            <span>Book Free Demo Class</span>
-          </button>
-        </div>
-      )}
     </>
   );
 }
