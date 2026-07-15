@@ -16,7 +16,6 @@ export default function Navbar() {
     { name: 'Courses', path: '/courses' },
     { name: 'Reviews', path: '/reviews' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'YouTube', path: '/youtube' },
     { name: 'Contact', path: '/contact' },
   ];
 

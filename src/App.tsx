@@ -10,7 +10,6 @@ import About from './pages/About';
 import Courses from './pages/Courses';
 import Reviews from './pages/Reviews';
 import Gallery from './pages/Gallery';
-import YouTube from './pages/YouTube';
 import Contact from './pages/Contact';
 
 // Scroll to Top component to ensure clean transitions on page changes
@@ -61,7 +60,6 @@ export default function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/youtube" element={<YouTube />} />
           <Route path="/contact" element={<Contact />} />
           {/* Fallback redirect */}
           <Route path="*" element={<Home />} />

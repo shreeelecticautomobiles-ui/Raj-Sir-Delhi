@@ -526,6 +526,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 6.5 YOUTUBE CTA BANNER CARD */}
+      <section id="youtube-cta-banner" className="bg-bg-main pb-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="bg-primary text-white rounded-[32px] py-12 px-8 md:px-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            
+            {/* Left side: Heading & Stats */}
+            <div className="space-y-8 max-w-xl">
+              <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight leading-snug">
+                Never miss a lesson. Subscribe for daily updates.
+              </h3>
+              
+              {/* Stats Block */}
+              <div className="flex flex-row gap-8 justify-center md:justify-start items-center">
+                <div className="text-left">
+                  <p className="text-3xl font-extrabold text-white tracking-tight">7 Thousand+</p>
+                  <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Subscribers</p>
+                </div>
+                <div className="h-8 w-px bg-blue-400/30"></div>
+                <div className="text-left">
+                  <p className="text-3xl font-extrabold text-white tracking-tight">1,200+</p>
+                  <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Videos Published</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side: Button & Subtext */}
+            <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
+              <a
+                id="youtube-subscribe-bottom-btn"
+                href="https://www.youtube.com/c/rajsirdelhi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-blue-50 px-8 py-3.5 rounded-2xl text-sm font-bold shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+              >
+                <span className="uppercase tracking-wider">Subscribe Now</span>
+                <span className="text-base">🔔</span>
+              </a>
+              <p className="text-blue-100 text-xs tracking-wide">
+                Join the fastest growing language community
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* 4. REAL GOOGLE MAP EMBED */}
       <section id="google-map-section-home" className="bg-bg-main py-16 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -535,7 +581,7 @@ export default function Home() {
             <div className="lg:col-span-5 space-y-8 text-left">
               <div className="space-y-3">
                 <h3 className="font-sans text-4xl sm:text-5xl font-extrabold text-text-primary tracking-tight">
-                  Visit Our Academy
+                  Visit Our Classes
                 </h3>
                 <p className="text-text-secondary text-sm">
                   Come experience Raj Sir's highly effective interactive classes in person. Located at Shakarpur Main market, Laxmi Nagar.
