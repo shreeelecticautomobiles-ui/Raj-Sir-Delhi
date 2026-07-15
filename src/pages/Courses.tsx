@@ -105,9 +105,15 @@ export default function Courses() {
               </div>
 
               <div className="pt-8">
-                <Button id="btn-beginner-enquire" variant="secondary" className="w-full" onClick={handleEnquire}>
+                <a
+                  id="btn-beginner-enquire"
+                  href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Beginner%20Spoken%20English%20course%20-%20please%20share%20details"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center bg-white border-2 border-primary hover:bg-primary/5 text-primary py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all"
+                >
                   Enquire for Batch
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -154,9 +160,15 @@ export default function Courses() {
               </div>
 
               <div className="pt-8">
-                <Button id="btn-intermediate-enquire" variant="primary" className="w-full shadow-md" onClick={handleEnquire}>
+                <a
+                  id="btn-intermediate-enquire"
+                  href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Intermediate%20Spoken%20English%20course%20-%20please%20share%20details"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center bg-primary hover:bg-primary-dark text-white py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5"
+                >
                   Enroll In Fluency Batch
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -198,9 +210,15 @@ export default function Courses() {
               </div>
 
               <div className="pt-8">
-                <Button id="btn-advanced-enquire" variant="secondary" className="w-full" onClick={handleEnquire}>
+                <a
+                  id="btn-advanced-enquire"
+                  href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Advanced%20Spoken%20English%20course%20-%20please%20share%20details"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center bg-white border-2 border-primary hover:bg-primary/5 text-primary py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all"
+                >
                   Enquire for Batch
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -251,9 +269,15 @@ export default function Courses() {
                 </p>
                 <div className="flex justify-between items-center pt-4 border-t border-gray-50">
                   <div className="text-xs text-text-secondary font-semibold">Weekend Batches Only</div>
-                  <Button id="btn-german-enroll" variant="dark" className="!py-2 !px-4 text-xs font-semibold" onClick={handleEnquire}>
+                  <a
+                    id="btn-german-enroll"
+                    href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20German%20course%20-%20please%20share%20details"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold text-xs uppercase tracking-wider py-2.5 px-6 rounded-lg shadow-sm transition-all hover:-translate-y-0.5"
+                  >
                     Enroll Now
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -283,9 +307,15 @@ export default function Courses() {
                 </p>
                 <div className="flex justify-between items-center pt-4 border-t border-gray-50">
                   <div className="text-xs text-text-secondary font-semibold">Evening Batches Online</div>
-                  <Button id="btn-chinese-enroll" variant="primary" className="!py-2 !px-4 text-xs font-semibold" onClick={handleEnquire}>
+                  <a
+                    id="btn-chinese-enroll"
+                    href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Chinese%20course%20-%20please%20share%20details"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-bold text-xs uppercase tracking-wider py-2.5 px-6 rounded-lg shadow-sm transition-all hover:-translate-y-0.5"
+                  >
                     Enquire for Fees
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>

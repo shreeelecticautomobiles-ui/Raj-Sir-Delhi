@@ -20,7 +20,15 @@ import {
   Clock,
   ArrowUpRight,
   MapPin,
-  Phone
+  Phone,
+  GraduationCap,
+  Briefcase,
+  Search,
+  Languages,
+  Home as HomeIcon,
+  UserCheck,
+  FileText,
+  BookOpen
 } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
@@ -51,7 +59,7 @@ export default function Home() {
 
   const getWhatsAppLink = (id: string) => {
     if (id === 'c-english') {
-      return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Spoken%20English%20Mastery%20course%20-%20please%20share%20batch%20timings";
+      return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20Spoken%20English%20course%20-%20please%20share%20batch%20timings";
     } else if (id === 'c-german') {
       return "https://wa.me/919015424048?text=Hi%2C%20I%27m%20interested%20in%20the%20German%20course%20-%20please%20share%20details";
     } else {
@@ -89,41 +97,61 @@ export default function Home() {
   const whyUsData = [
     {
       id: 'why-1',
-      /* SOURCE: live Google Maps listing, update if this changes */
-      title: '1,081 Google Reviews',
-      desc: 'Our students consistently rate us 5.0 stars on Google for delivering rapid, real-world spoken language confidence.',
-      icon: <Star className="h-6 w-6 text-accent-yellow" fill="#FBBF24" />
-    },
-    {
-      id: 'why-2',
-      title: 'Experienced Trainer',
-      desc: '15+ years of dedicated expertise by Raj Sir coaching senior corporate executives, job seekers, and students.',
-      icon: <Award className="h-6 w-6 text-primary" />
-    },
-    {
-      id: 'why-3',
-      title: 'Practical Practice',
-      desc: 'Daily interactive group discussions, podium debates, and public speaking sessions designed to eliminate hesitation.',
+      title: 'Speak English Fluently',
+      desc: 'Gain natural flow, correct pronunciation, and express your thoughts clearly without translating in your head.',
       icon: <Volume2 className="h-6 w-6 text-primary" />
     },
     {
+      id: 'why-2',
+      title: 'Build Real Confidence',
+      desc: 'Overcome the fear of making mistakes and participate actively in any social or professional conversation.',
+      icon: <Sparkles className="h-6 w-6 text-primary" />
+    },
+    {
+      id: 'why-3',
+      title: 'Crack Interviews',
+      desc: 'Master professional self-introduction, handle tricky questions, and project absolute authority during job interviews.',
+      icon: <Award className="h-6 w-6 text-primary" />
+    },
+    {
       id: 'why-4',
-      title: 'Hindi Medium Friendly',
-      desc: 'A unique bilingual translation pedagogy designed especially for individuals who think in Hindi and struggle to speak.',
+      title: 'Public Speaking Skills',
+      desc: 'Speak fearlessly from a stage or podium, hold your audience\'s attention, and structure impactful presentations.',
       icon: <Users2 className="h-6 w-6 text-primary" />
     },
     {
       id: 'why-5',
-      title: 'Accent Training',
-      desc: 'Hone your pronunciation, syllables, and neutralize your regional influence for high-end international corporate standards.',
-      icon: <Zap className="h-6 w-6 text-primary" />
+      title: 'Better Communication Skills',
+      desc: 'Articulate ideas clearly, listen actively, and build strong interpersonal relations in personal and business life.',
+      icon: <MessageSquare className="h-6 w-6 text-primary" />
     },
     {
       id: 'why-6',
-      title: 'Lifetime Support',
-      desc: 'Once a student, always a student. Gain complimentary, unlimited access to our speaking circles even after graduation.',
-      icon: <ShieldCheck className="h-6 w-6 text-primary" />
+      title: 'Professional Personality Development',
+      desc: 'Transform your body language, expand your professional vocabulary, and develop a magnetic, corporate-ready aura.',
+      icon: <Zap className="h-6 w-6 text-primary" />
     }
+  ];
+
+  const whoShouldJoinData = [
+    { id: 'wsj-1', label: 'Students', icon: <GraduationCap className="h-6 w-6" /> },
+    { id: 'wsj-2', label: 'Working Professionals', icon: <Briefcase className="h-6 w-6" /> },
+    { id: 'wsj-3', label: 'Job Seekers', icon: <Search className="h-6 w-6" /> },
+    { id: 'wsj-4', label: 'College Students', icon: <BookOpen className="h-6 w-6" /> },
+    { id: 'wsj-5', label: 'Hindi Medium Students', icon: <Languages className="h-6 w-6" /> },
+    { id: 'wsj-6', label: 'Housewives', icon: <HomeIcon className="h-6 w-6" /> },
+    { id: 'wsj-7', label: 'Business Owners', icon: <ArrowUpRight className="h-6 w-6" /> },
+    { id: 'wsj-8', label: 'Interview Preparation', icon: <FileText className="h-6 w-6" /> },
+    { id: 'wsj-9', label: 'Personality Development', icon: <UserCheck className="h-6 w-6" /> }
+  ];
+
+  const journeySteps = [
+    { label: 'Book Free Demo', icon: <Calendar className="h-6 w-6" /> },
+    { label: 'Attend First Class', icon: <Users2 className="h-6 w-6" /> },
+    { label: 'Join Batch', icon: <CheckCircle className="h-6 w-6" /> },
+    { label: 'Daily Speaking Practice', icon: <Volume2 className="h-6 w-6" /> },
+    { label: 'Build Confidence', icon: <Sparkles className="h-6 w-6" /> },
+    { label: 'Become Fluent', icon: <Award className="h-6 w-6" /> }
   ];
 
   return (
@@ -149,7 +177,7 @@ export default function Home() {
             
             <p id="hero-subtext" className="text-text-secondary text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl">
               {/* SOURCE: live Google Maps listing, update if this changes */}
-              Join 10,000+ successful students. Master English, German, and Chinese with our unique Hindi-to-English methodology. 1,081 Verified Google Reviews.
+              Join Delhi's premier destination for English, German, and Chinese speaking fluency. Overcome hesitation with Raj Sir's native classroom method and interactive batches.
             </p>
             
             {/* Call To Actions */}
@@ -158,7 +186,7 @@ export default function Home() {
                 id="hero-book-demo-btn"
                 variant="primary"
                 onClick={handleBookDemo}
-                className="group"
+                className="group font-bold"
               >
                 <span>Book Free Demo</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -168,10 +196,10 @@ export default function Home() {
                 href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-1 hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 hover:shadow-lg transition-all"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-600" />
-                <span>WhatsApp</span>
+                <span>WhatsApp Now</span>
               </a>
             </div>
 
@@ -199,10 +227,10 @@ export default function Home() {
                   <Star className="h-4 w-4 fill-current text-accent-yellow" />
                   <Star className="h-4 w-4 fill-current text-accent-yellow" />
                   {/* SOURCE: live Google Maps listing, update if this changes */}
-                  <span className="ml-1.5 text-text-primary text-sm font-bold">5.0/5</span>
+                  <span className="ml-1.5 text-text-primary text-sm font-extrabold">5.0 ★</span>
                 </div>
                 {/* SOURCE: live Google Maps listing, update if this changes */}
-                <p className="text-xs text-text-secondary font-medium">1,081 Verified Google Reviews</p>
+                <p className="text-xs text-text-secondary font-bold">1,081 Verified Google Reviews</p>
               </div>
             </div>
           </div>
@@ -213,15 +241,14 @@ export default function Home() {
               {/* Backglow blur decorative circle */}
               <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
               
-              {/* CLIENT: replace with a real photo of Raj Sir's face, ideally teaching a class, OR a 15-20s muted looping video clip of a live class */}
-              <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-gray-100 aspect-[4/5] relative flex flex-col items-center justify-center p-8 text-center space-y-4">
-                <div className="h-16 w-16 rounded-full bg-white flex items-center justify-center shadow-md text-primary">
+              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/5] relative flex flex-col items-center justify-center p-8 text-center space-y-4">
+                <div className="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center shadow-md text-primary">
                   <Users2 className="h-8 w-8" />
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-sans font-bold text-sm text-text-primary">Raj Sir Classroom Photo / Video</h3>
-                  <p className="text-[10px] text-text-secondary max-w-[220px] mx-auto leading-relaxed">
-                    Real classroom snapshot or 15s muted looping class session video clip
+                <div className="space-y-2">
+                  <h3 className="font-sans font-extrabold text-sm text-text-primary">Photo pending</h3>
+                  <p className="text-[11px] text-text-secondary max-w-[220px] mx-auto leading-relaxed">
+                    Interactive face-to-face classes or group learning snapshots coming soon.
                   </p>
                 </div>
               </div>
@@ -244,42 +271,155 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 2. TRUST BAR STRIP (4 items) */}
-      <section id="trust-strip" className="bg-white border-y border-gray-100/60 py-8">
-        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 grid grid-cols-2 gap-y-6 md:grid-cols-4 md:gap-x-4">
-          <div id="trust-item-1" className="flex items-center justify-center gap-3 border-r border-gray-100 last:border-0">
-            <Star className="h-6 w-6 text-accent-yellow shrink-0" fill="#FBBF24" />
-            <div className="text-left">
-              {/* SOURCE: live Google Maps listing, update if this changes */}
-              <p className="text-sm font-bold text-text-primary leading-none">
-                <CountUp end={5.0} decimals={1} suffix=" Rating" />
+      {/* 1.5. WHO SHOULD JOIN? (New Section) */}
+      <section id="who-should-join-section" className="bg-[#F1F3FF] py-16 border-y border-gray-100">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+          {/* Section Heading */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Targeted Training</span>
+            <h2 className="font-sans text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
+              Who Should Join Our Batches?
+            </h2>
+            <p className="text-text-secondary text-base leading-relaxed">
+              Our courses are carefully customized to accelerate career success and build fluent communication for various goals.
+            </p>
+          </div>
+
+          {/* Grid of 9 Audience Categories */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
+            {whoShouldJoinData.map((item) => (
+              <div
+                key={item.id}
+                id={item.id}
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col items-center justify-center text-center space-y-3 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
+              >
+                <div className="h-12 w-12 rounded-xl bg-blue-50 text-primary flex items-center justify-center shadow-inner">
+                  {item.icon}
+                </div>
+                <span className="font-sans font-bold text-xs sm:text-sm text-text-primary uppercase tracking-wider">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 2. TRUST STATISTICS SECTION (Rebuilt 8-item Grid) */}
+      <section id="trust-statistics-section" className="bg-white py-16 border-b border-gray-100">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+          {/* Section Heading */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Proven Outcomes</span>
+            <h2 className="font-sans text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
+              Verified Institute Milestones
+            </h2>
+            <p className="text-text-secondary text-base leading-relaxed">
+              We deliver real results. Explore the verified metrics that make us Delhi's most trusted spoken language destination.
+            </p>
+          </div>
+
+          {/* 8-Item Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            {/* Stat 1: Google Rating */}
+            <div id="stat-rating" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-accent-yellow">
+                <Star className="h-6 w-6 fill-current text-accent-yellow" />
+              </div>
+              <p className="font-sans font-extrabold text-2xl sm:text-3xl text-text-primary">
+                {/* SOURCE: live Google Maps listing, update if this changes */}
+                <CountUp end={5.0} decimals={1} />
               </p>
-              <p className="text-xs text-text-secondary mt-0.5">Top Spoken English</p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider">Google Rating</p>
+              <p className="text-[11px] text-text-secondary">Perfect 5.0 Rating</p>
             </div>
-          </div>
-          <div id="trust-item-2" className="flex items-center justify-center gap-3 md:border-r border-gray-100 last:border-0">
-            <Award className="h-6 w-6 text-primary shrink-0" />
-            <div className="text-left">
-              {/* SOURCE: live Google Maps listing, update if this changes */}
-              <p className="text-sm font-bold text-text-primary leading-none">
-                <CountUp end={1081} suffix=" Reviews" />
+
+            {/* Stat 2: Google Reviews */}
+            <div id="stat-reviews" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <MessageSquare className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-2xl sm:text-3xl text-text-primary">
+                {/* SOURCE: live Google Maps listing, update if this changes */}
+                <CountUp end={1081} />
               </p>
-              <p className="text-xs text-text-secondary mt-0.5">Verified Students</p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider">Google Reviews</p>
+              <p className="text-[11px] text-text-secondary">Verified Students</p>
             </div>
-          </div>
-          <div id="trust-item-3" className="flex items-center justify-center gap-3 border-r border-gray-100 last:border-0">
-            <Laptop className="h-6 w-6 text-primary shrink-0" />
-            <div className="text-left">
-              <p className="text-sm font-bold text-text-primary leading-none">Online & Offline</p>
-              <p className="text-xs text-text-secondary mt-0.5">Dual Mode Classes</p>
+
+            {/* Stat 3: Languages */}
+            <div id="stat-languages" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <Languages className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-2xl sm:text-3xl text-text-primary">
+                <CountUp end={3} />
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider">Languages</p>
+              <p className="text-[11px] text-text-secondary">English, German, Chinese</p>
             </div>
-          </div>
-          <div id="trust-item-4" className="flex items-center justify-center gap-3 last:border-0">
-            <CheckCircle className="h-6 w-6 text-emerald-500 shrink-0" />
-            <div className="text-left">
-              <p className="text-sm font-bold text-text-primary leading-none">ISO Certified</p>
-              <p className="text-xs text-text-secondary mt-0.5">Standard Methodology</p>
+
+            {/* Stat 4: Learning Modes */}
+            <div id="stat-modes" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <Laptop className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-2xl sm:text-3xl text-text-primary">
+                <CountUp end={2} />
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider">Dual Modes</p>
+              <p className="text-[11px] text-text-secondary">Online & Offline Classes</p>
             </div>
+
+            {/* Stat 5: Small Batches */}
+            <div id="stat-batches" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <Users2 className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-xl sm:text-2xl text-text-primary pt-1">
+                Small
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider mt-1">Batch Sizes</p>
+              <p className="text-[11px] text-text-secondary">Personalized Attention</p>
+            </div>
+
+            {/* Stat 6: Practice Focus */}
+            <div id="stat-practice" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <Volume2 className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-xl sm:text-2xl text-text-primary pt-1">
+                Daily
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider mt-1">Discussions</p>
+              <p className="text-[11px] text-text-secondary">Stage Speeches & Debates</p>
+            </div>
+
+            {/* Stat 7: Campus Location */}
+            <div id="stat-location" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-sm sm:text-base text-text-primary py-2.5">
+                Laxmi Nagar
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider">Prime Campus</p>
+              <p className="text-[11px] text-text-secondary">Shakarpur Main Market, Delhi</p>
+            </div>
+
+            {/* Stat 8: Social Community */}
+            <div id="stat-socials" className="bg-[#F9F9FF] p-6 rounded-2xl border border-gray-100 text-center space-y-2">
+              <div className="flex justify-center text-primary">
+                <Award className="h-6 w-6" />
+              </div>
+              <p className="font-sans font-extrabold text-xl sm:text-2xl text-text-primary pt-1">
+                Linked
+              </p>
+              <p className="text-xs font-bold text-text-primary uppercase tracking-wider mt-1">Active Community</p>
+              <p className="text-[11px] text-text-secondary">YouTube & Instagram</p>
+            </div>
+
           </div>
         </ScrollReveal>
       </section>
@@ -355,11 +495,10 @@ export default function Home() {
             {/* Course Image Side */}
             <div className="lg:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 relative shadow-md">
               {courses[courseIndex].id === 'c-english' ? (
-                /* CLIENT: replace with real classroom/students photo */
-                <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                  <Users2 className="h-10 w-10 text-text-secondary" />
+                <div className="w-full h-full bg-slate-50 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                  <Users2 className="h-10 w-10 text-primary" />
                   <div>
-                    <h4 className="font-sans font-bold text-xs text-text-primary">Real Classroom & Students Photo</h4>
+                    <h4 className="font-sans font-bold text-xs text-text-primary">Photo pending</h4>
                     <p className="text-[10px] text-text-secondary mt-0.5">Real classroom or interactive teaching session</p>
                   </div>
                 </div>
@@ -396,14 +535,21 @@ export default function Home() {
               </div>
 
               {/* Features checklist */}
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-text-secondary">
-                {courses[courseIndex].features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-4">
+                {/* High-impact outcome statement highlighted in a prominent banner */}
+                <p className="text-xs sm:text-sm font-extrabold text-[#141B2B] leading-relaxed bg-blue-50/50 p-3.5 rounded-xl border-l-4 border-primary">
+                  🎯 {courses[courseIndex].features[0]}
+                </p>
+                
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-text-secondary">
+                  {courses[courseIndex].features.slice(1).map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3 pt-2">
@@ -412,23 +558,21 @@ export default function Home() {
                   href={getWhatsAppLink(courses[courseIndex].id)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer ${
                     courses[courseIndex].isBestSeller 
-                      ? "bg-primary hover:bg-primary-dark text-white shadow-md hover:-translate-y-[3px] hover:shadow-lg" 
-                      : "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-[3px] transition-all"
+                      ? "bg-primary hover:bg-primary-dark text-white shadow-md hover:-translate-y-0.5" 
+                      : "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
                   }`}
                 >
                   {courses[courseIndex].buttonText}
                 </a>
-                <a
+                <button
                   id={`carousel-syllabus-${courses[courseIndex].id}`}
-                  href={getWhatsAppLink(courses[courseIndex].id)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 font-semibold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text shadow-md hover:-translate-y-[3px] hover:shadow-lg"
+                  onClick={handleBookDemo}
+                  className="px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 transform active:scale-95 inline-flex items-center justify-center gap-2 cursor-pointer bg-dark-inverse hover:bg-dark-inverse-alt text-dark-text shadow-md hover:-translate-y-0.5"
                 >
-                  View Details
-                </a>
+                  Book Free Demo
+                </button>
               </div>
             </div>
 
@@ -452,6 +596,61 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
+      {/* STUDENT JOURNEY STEPPER SECTION */}
+      <section id="student-journey-section" className="bg-[#F1F3FF] py-20 border-y border-gray-100">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-16">
+          {/* Heading */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Your Roadmap</span>
+            <h2 className="font-sans text-3xl font-extrabold tracking-tight text-[#141B2B] sm:text-4xl">
+              Your Student Transformation Journey
+            </h2>
+            <p className="text-[#434655] text-base leading-relaxed">
+              We guide you step-by-step from day one. Here is how we build your confidence and make you fluent.
+            </p>
+          </div>
+
+          {/* 6-step horizontal timeline stepper with custom numbers & lines */}
+          <div className="relative">
+            {/* Connecting line on desktop */}
+            <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-0.5 bg-gray-200 z-0"></div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
+              {journeySteps.map((step, idx) => (
+                <div key={idx} id={`journey-step-${idx}`} className="flex flex-col items-center text-center space-y-4">
+                  {/* Step bubble with index and icon */}
+                  <div className="relative flex items-center justify-center">
+                    {/* Circle badge */}
+                    <div className="h-[88px] w-[88px] rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
+                      {step.icon}
+                    </div>
+                    {/* Step number badge */}
+                    <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-white font-mono text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm">
+                      {idx + 1}
+                    </span>
+                  </div>
+
+                  {/* Step label text */}
+                  <div className="space-y-1.5 px-2">
+                    <h4 className="font-sans font-bold text-xs text-[#141B2B] uppercase tracking-wider">
+                      {step.label}
+                    </h4>
+                    <p className="text-[11px] text-[#434655] leading-relaxed">
+                      {idx === 0 && "Reserve a complimentary slot. Experience Raj Sir's native face-to-face teaching."}
+                      {idx === 1 && "Interactive trial. Engage in practical discussions and explore our batches."}
+                      {idx === 2 && "Flexible timings. Grouped with peers matching your current language level."}
+                      {idx === 3 && "Daily podium speeches, debate sessions & practical grammar exercises."}
+                      {idx === 4 && "Eliminate public speaking hesitation. Refine pronunciation and body language."}
+                      {idx === 5 && "Launch your global career with premium multilingual speaking proficiency."}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
       {/* 5. WHAT OUR STUDENTS SAY */}
       <section id="testimonials-section" className="bg-bg-alt/40 py-20">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
@@ -463,7 +662,7 @@ export default function Home() {
             </h2>
             <div className="flex items-center justify-center gap-2 pt-2">
               {/* SOURCE: live Google Maps listing, update if this changes */}
-              <span className="text-lg font-bold text-text-primary">5.0/5.0</span>
+              <span className="text-lg font-bold text-text-primary">5.0 ★</span>
               <div className="flex text-accent-yellow font-semibold">
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
@@ -472,7 +671,7 @@ export default function Home() {
                 <Star className="h-4 w-4 fill-current text-accent-yellow" />
               </div>
               {/* SOURCE: live Google Maps listing, update if this changes */}
-              <span className="text-xs text-text-secondary font-medium">(1,081 Google Reviews)</span>
+              <span className="text-xs text-text-secondary font-bold">(1,081 Google Reviews)</span>
             </div>
           </div>
 
@@ -605,24 +804,14 @@ export default function Home() {
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="bg-primary text-white rounded-[32px] py-12 px-8 md:px-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             
-            {/* Left side: Heading & Stats */}
-            <div className="space-y-8 max-w-xl">
+            {/* Left side: Heading & Value Prop */}
+            <div className="space-y-4 max-w-xl text-left">
               <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight leading-snug">
                 Never miss a lesson. Subscribe for daily updates.
               </h3>
-              
-              {/* CLIENT: insert real subscriber count and real video count from YouTube Studio before launch */}
-              <div className="flex flex-row gap-8 justify-center md:justify-start items-center">
-                <div className="text-left">
-                  <p className="text-3xl font-extrabold text-white tracking-tight">[7K+]</p>
-                  <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Subscribers</p>
-                </div>
-                <div className="h-8 w-px bg-blue-400/30"></div>
-                <div className="text-left">
-                  <p className="text-3xl font-extrabold text-white tracking-tight">[1,200+]</p>
-                  <p className="text-[10px] font-bold text-blue-200 uppercase tracking-wider mt-0.5">Videos Published</p>
-                </div>
-              </div>
+              <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                Join our active online community and get access to free bite-sized English speaking tips, pronunciation guides, and interactive grammar tutorials directly in your feed.
+              </p>
             </div>
 
             {/* Right side: Button & Subtext */}
@@ -720,6 +909,64 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* FINAL CTA BANNER SECTION */}
+      <section id="final-cta-banner-section" className="bg-bg-main py-16 px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="mx-auto max-w-5xl">
+          <div className="bg-accent-yellow rounded-3xl md:rounded-[40px] py-16 px-6 md:px-16 shadow-xl border border-amber-300 text-center space-y-8 relative overflow-hidden">
+            {/* Ambient overlay light circles */}
+            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/20 blur-2xl pointer-events-none"></div>
+            <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+
+            <div className="flex justify-center items-center gap-1.5 text-text-primary relative z-10">
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <Star className="h-5 w-5 fill-current" />
+              <span className="ml-2 text-sm font-extrabold text-text-primary">5.0 Rating · 1,081 Verified Google Reviews</span>
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
+                Start Your English Speaking Journey Today
+              </h2>
+              <p className="text-text-secondary text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                Join Delhi's trusted language institute and transform your confidence, communication skills, and career opportunities.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 relative z-10">
+              <Button
+                id="final-cta-book-demo-btn"
+                variant="dark"
+                onClick={handleBookDemo}
+                className="px-8 py-4 font-bold text-sm tracking-wider uppercase shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Book Free Demo Class
+              </Button>
+              <a
+                id="final-cta-whatsapp-btn"
+                href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <MessageSquare className="h-4 w-4" />
+                <span>WhatsApp Now</span>
+              </a>
+              <a
+                id="final-cta-call-btn"
+                href="tel:+919015424048"
+                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary/40 text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <Phone className="h-4 w-4" />
+                <span>Call Now</span>
+              </a>
+            </div>
           </div>
         </ScrollReveal>
       </section>

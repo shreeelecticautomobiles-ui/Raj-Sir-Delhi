@@ -91,33 +91,33 @@ export const testimonials: Testimonial[] = [
 export const courses: Course[] = [
   {
     id: 'c-english',
-    title: 'Spoken English Mastery',
+    title: 'Master Spoken English',
     duration: '3 Months',
     timing: 'Mon-Fri (10:00 AM or 6:00 PM)',
     badge: 'Best Seller',
     isBestSeller: true,
     features: [
+      'Become fluent. Build real confidence. Communicate without hesitation.',
       'Hindi-to-English native translation method',
       'Daily group discussions & debate circles',
       'Neutral accent & pronunciation coaching',
-      'Comprehensive public speaking practice',
-      'Lifetime access to Speaking Clubs'
+      'Comprehensive public speaking practice'
     ],
-    image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&auto=format&fit=crop&q=80',
+    image: '',
     buttonText: 'Enroll Now'
   },
   {
     id: 'c-german',
-    title: 'German Language (A1 - B2)',
+    title: 'Master German (A1-B2)',
     duration: '4-6 Months',
     timing: 'Weekend Batches (Sat & Sun)',
     badge: 'New Batch',
     isBestSeller: false,
     features: [
+      'Open doors to international opportunities.',
       'Comprehensive Goethe Exam preparation',
       'Structured vocabulary building blocks',
       'Interactive reading, writing & listening sessions',
-      'Exclusive German cultural orientation modules',
       'Official study materials & sample tests'
     ],
     image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&auto=format&fit=crop&q=80',
@@ -125,16 +125,16 @@ export const courses: Course[] = [
   },
   {
     id: 'c-chinese',
-    title: 'Chinese HSK Levels',
+    title: 'Master Chinese (HSK)',
     duration: '6 Months',
     timing: 'Evening Batches Online',
     badge: 'Corporate Focus',
     isBestSeller: false,
     features: [
+      'Professional-level language training for global careers.',
       'HSK 1 to 4 official certification syllabus',
       'Pinyin & character writing drills',
       'Business conversation & negotiation practice',
-      'Taught by certified corporate trainers',
       'Direct placement assistance in MNCs'
     ],
     image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&auto=format&fit=crop&q=80',
