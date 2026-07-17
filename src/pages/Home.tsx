@@ -163,14 +163,6 @@ export default function Home() {
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 relative grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
           {/* Hero Left Info */}
           <div id="hero-info" className="lg:col-span-7 space-y-6 text-left">
-            <span
-              id="hero-badge"
-              className="inline-flex items-center gap-1.5 rounded-full bg-blue-100/80 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-primary border border-blue-200/40"
-            >
-              <Sparkles className="h-3 w-3 animate-pulse" />
-              Delhi's Most Trusted Language Institute
-            </span>
-            
             <h1 id="hero-headline" className="font-sans text-4xl font-extrabold tracking-tight text-text-primary sm:text-5xl lg:text-6xl leading-[1.15]">
               Speak English <span className="text-primary">Confidently</span> with Raj Sir
             </h1>
@@ -241,7 +233,7 @@ export default function Home() {
               {/* Backglow blur decorative circle */}
               <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
               
-              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/5] relative">
+              <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/3] relative">
                 <img
                   src="https://i.ibb.co/6RG29rkW/Gemini-Generated-Image-qyynnnqyynnnqyyn.png"
                   alt="Raj Sir Spoken English Learning"
