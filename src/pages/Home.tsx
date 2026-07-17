@@ -241,16 +241,13 @@ export default function Home() {
               {/* Backglow blur decorative circle */}
               <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
               
-              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/5] relative flex flex-col items-center justify-center p-8 text-center space-y-4">
-                <div className="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center shadow-md text-primary">
-                  <Users2 className="h-8 w-8" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-sans font-extrabold text-sm text-text-primary">Photo pending</h3>
-                  <p className="text-[11px] text-text-secondary max-w-[220px] mx-auto leading-relaxed">
-                    Interactive face-to-face classes or group learning snapshots coming soon.
-                  </p>
-                </div>
+              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/5] relative">
+                <img
+                  src="https://i.ibb.co/6RG29rkW/Gemini-Generated-Image-qyynnnqyynnnqyyn.png"
+                  alt="Raj Sir Spoken English Learning"
+                  className="object-cover w-full h-full object-center hover:scale-105 transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
               {/* Next batch starting card overlay */}

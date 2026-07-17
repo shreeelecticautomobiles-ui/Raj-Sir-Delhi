@@ -17,6 +17,32 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import { testimonials } from '../data';
 
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
+
+const getInitialsBg = (name: string) => {
+  const colors = [
+    'bg-blue-100 text-blue-700 border border-blue-200',
+    'bg-emerald-100 text-emerald-700 border border-emerald-200',
+    'bg-indigo-100 text-indigo-700 border border-indigo-200',
+    'bg-purple-100 text-purple-700 border border-purple-200',
+    'bg-amber-100 text-amber-700 border border-amber-200',
+    'bg-rose-100 text-rose-700 border border-rose-200',
+  ];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colors.length;
+  return colors[index];
+};
+
 export default function About() {
   const routerNavigate = useNavigate();
 
@@ -74,9 +100,9 @@ export default function About() {
               
               <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-xl bg-white aspect-[4/5] relative">
                 <img
-                  src="https://i.ibb.co/jkG8VPTt/Screenshot-2026-07-14-233324.png"
-                  alt="Raj Sir Professional Portrait"
-                  className="object-cover w-full h-full object-top filter hover:scale-105 transition-all duration-700"
+                  src="https://i.ibb.co/TDgMHb7w/Gemini-Generated-Image-qqz5nqqz5nqqz5nq.png"
+                  alt="Raj Sir Spoken English Session"
+                  className="object-cover w-full h-full object-center hover:scale-105 transition-all duration-700"
                 />
               </div>
 
@@ -308,7 +334,18 @@ export default function About() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-6 border-t border-gray-800/80 mt-6">
-                  <img src={item.avatar} alt={item.name} className="h-10 w-10 rounded-full object-cover shrink-0" />
+                  {item.avatar ? (
+                    <img 
+                      src={item.avatar} 
+                      alt={item.name} 
+                      className="h-10 w-10 rounded-full object-cover shrink-0" 
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className={`h-10 w-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${getInitialsBg(item.name)}`}>
+                      {getInitials(item.name)}
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-sans font-bold text-sm text-white leading-tight">{item.name}</h4>
                     <p className="text-xs text-gray-500">{item.role}</p>

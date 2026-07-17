@@ -11,7 +11,8 @@ import {
   Calendar,
   Layers,
   Globe2,
-  Languages
+  Languages,
+  ArrowUpRight
 } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
@@ -224,6 +225,49 @@ export default function Courses() {
 
           </div>
 
+        </div>
+      </section>
+
+      {/* 2.5 COMPETITIVE EXAM ENGLISH SECTION */}
+      <section id="competitive-exams" className="bg-bg-main py-16 border-t border-gray-100">
+        <div className="mx-auto max-w-5xl px-6 md:px-8 space-y-10">
+          <div className="text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Targeted Exam Preparation</span>
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+              English for Competitive Exams
+            </h2>
+            <p className="text-text-secondary text-sm max-w-2xl mx-auto leading-relaxed">
+              We offer highly structured, batch-wise English coaching specifically designed to help you clear competitive exam cut-offs and score full marks. Select an exam to enquire on WhatsApp.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3.5 justify-center max-w-4xl mx-auto">
+            {[
+              'SSC English',
+              'Bank English',
+              'B.A. English',
+              'CBSE English',
+              'NDA English',
+              'CDS English',
+              'Police English',
+              'B.Ed English',
+              'UPSC English'
+            ].map((exam) => (
+              <a
+                key={exam}
+                id={`exam-tag-${exam.toLowerCase().replace(/\s+/g, '-')}`}
+                href={`https://wa.me/919015424048?text=${encodeURIComponent(
+                  `Hi, I'm interested in English coaching for ${exam} - please share details`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 bg-white hover:bg-primary/5 border border-gray-200 hover:border-primary text-text-primary hover:text-primary px-5 py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow active:scale-95 cursor-pointer"
+              >
+                <span>{exam}</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-primary transition-colors" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
