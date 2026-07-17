@@ -188,15 +188,15 @@ export default function Home() {
                 href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 hover:shadow-lg transition-all active:scale-95 transform"
               >
                 <MessageSquare className="h-4 w-4 text-emerald-600" />
                 <span>WhatsApp Now</span>
               </a>
             </div>
 
-            {/* Social Trust row */}
-            <div id="hero-trust" className="flex items-center gap-4 pt-6 border-t border-gray-100/80">
+            {/* Social Trust row (Desktop) */}
+            <div id="hero-trust-desktop" className="hidden lg:flex items-center gap-4 pt-6 border-t border-gray-100/80">
               <div className="flex -space-x-3 overflow-hidden">
                 <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 text-xs font-bold ring-2 ring-white border border-blue-200">
                   RS
@@ -228,12 +228,12 @@ export default function Home() {
           </div>
 
           {/* Hero Right Image / Graphic representation */}
-          <div id="hero-image-pane" className="lg:col-span-5 relative flex justify-center">
+          <div id="hero-image-pane" className="lg:col-span-5 relative flex flex-col justify-center items-center">
             <div className="relative w-full max-w-md">
               {/* Backglow blur decorative circle */}
               <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
               
-              <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-[0_30px_60px_rgba(0,0,0,0.08)] bg-slate-50 aspect-[4/3] relative">
+              <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-slate-50 aspect-[4/3] relative">
                 <img
                   src="https://i.ibb.co/6RG29rkW/Gemini-Generated-Image-qyynnnqyynnnqyyn.png"
                   alt="Raj Sir Spoken English Learning"
@@ -254,6 +254,35 @@ export default function Home() {
                   <p className="text-[10px] uppercase tracking-wider font-bold text-gray-400">Next Batch Starts</p>
                   <p className="text-sm font-bold text-text-primary">Monday, 10:00 AM</p>
                 </div>
+              </div>
+            </div>
+
+            {/* Social Trust row (Mobile) - Stacked BELOW image with proper 24px (mt-8 = 32px) margin */}
+            <div id="hero-trust-mobile" className="lg:hidden flex items-center gap-4 mt-12 pt-6 border-t border-gray-100/80 w-full max-w-md text-left">
+              <div className="flex -space-x-3 overflow-hidden">
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 text-xs font-bold ring-2 ring-white border border-blue-200">
+                  RS
+                </div>
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold ring-2 ring-white border border-emerald-200">
+                  PV
+                </div>
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold ring-2 ring-white border border-indigo-200">
+                  AM
+                </div>
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white text-xs font-bold ring-2 ring-white">
+                  +1k
+                </div>
+              </div>
+              <div className="text-sm">
+                <div className="flex items-center text-accent-yellow-container font-semibold">
+                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
+                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
+                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
+                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
+                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
+                  <span className="ml-1.5 text-text-primary text-sm font-extrabold">5.0 ★</span>
+                </div>
+                <p className="text-xs text-text-secondary font-bold">1,081 Verified Google Reviews</p>
               </div>
             </div>
           </div>
@@ -414,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* 3. WHY LEARN FROM RAJ SIR */}
-      <section id="why-us-section" className="bg-bg-nest py-20">
+      <section id="why-us-section" className="bg-[#F9F9FF] py-20">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
           {/* Heading */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -641,7 +670,7 @@ export default function Home() {
       </section>
 
       {/* 5. WHAT OUR STUDENTS SAY */}
-      <section id="testimonials-section" className="bg-bg-alt/40 py-20">
+      <section id="testimonials-section" className="bg-[#F9F9FF] py-20">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
           {/* Heading */}
           <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -715,7 +744,7 @@ export default function Home() {
       </section>
 
       {/* 6. LEARN FOR FREE ON YOUTUBE (Dark rounded card section) */}
-      <section id="youtube-section" className="bg-bg-main py-16">
+      <section id="youtube-section" className="bg-white py-16">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="bg-dark-inverse text-dark-text rounded-3xl py-12 px-6 md:px-12 space-y-12 shadow-xl relative overflow-hidden">
             
@@ -789,7 +818,7 @@ export default function Home() {
       </section>
 
       {/* 6.5 YOUTUBE CTA BANNER CARD */}
-      <section id="youtube-cta-banner" className="bg-bg-main pb-16">
+      <section id="youtube-cta-banner" className="bg-[#F1F3FF] pb-16">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="bg-primary text-white rounded-[32px] py-12 px-8 md:px-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             
@@ -825,7 +854,7 @@ export default function Home() {
       </section>
 
       {/* 4. REAL GOOGLE MAP EMBED */}
-      <section id="google-map-section-home" className="bg-bg-main py-16 border-t border-gray-100">
+      <section id="google-map-section-home" className="bg-white py-16 border-t border-gray-100">
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -903,7 +932,7 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA BANNER SECTION */}
-      <section id="final-cta-banner-section" className="bg-bg-main py-16 px-4 sm:px-6 lg:px-8">
+      <section id="final-cta-banner-section" className="bg-[#F9F9FF] py-16 px-6 md:px-8">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="bg-accent-yellow rounded-3xl md:rounded-[40px] py-16 px-6 md:px-16 shadow-xl border border-amber-300 text-center space-y-8 relative overflow-hidden">
             {/* Ambient overlay light circles */}
@@ -942,7 +971,7 @@ export default function Home() {
                 href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5 active:scale-95 transform"
               >
                 <MessageSquare className="h-4 w-4" />
                 <span>WhatsApp Now</span>
@@ -950,7 +979,7 @@ export default function Home() {
               <a
                 id="final-cta-call-btn"
                 href="tel:+919015424048"
-                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary/40 text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 border-2 border-text-primary/40 text-text-primary hover:bg-text-primary/5 px-8 py-3.5 font-bold rounded-lg text-sm tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5 active:scale-95 transform"
               >
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>

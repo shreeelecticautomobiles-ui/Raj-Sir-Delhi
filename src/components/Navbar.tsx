@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Globe, PhoneCall } from 'lucide-react';
 import Button from './Button';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -22,9 +31,17 @@ export default function Navbar() {
   return (
     <header
       id="main-header"
-      className="sticky top-0 z-40 w-full border-b border-gray-100/80 bg-white/70 backdrop-blur-md transition-all duration-300"
+      className={`sticky top-0 z-40 w-full border-b backdrop-blur-md transition-all duration-200 ease-in-out ${
+        scrolled
+          ? 'bg-white/90 shadow-sm border-gray-200/50'
+          : 'bg-white/70 border-gray-200/30'
+      }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-200 ease-in-out md:px-8 ${
+          scrolled ? 'py-2.5' : 'py-4'
+        }`}
+      >
         {/* Brand Logo */}
         <Link
           id="nav-brand-logo"
@@ -72,7 +89,7 @@ export default function Navbar() {
         <button
           id="mobile-menu-toggle"
           onClick={toggleMenu}
-          className="flex items-center justify-center p-2 text-text-primary hover:text-primary lg:hidden cursor-pointer"
+          className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200/80 active:bg-gray-200 text-text-primary hover:text-primary lg:hidden transition-colors cursor-pointer shrink-0"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
