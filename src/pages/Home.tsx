@@ -878,7 +878,7 @@ export default function Home() {
                   <div className="space-y-1">
                     <h4 className="font-sans font-bold text-base text-text-primary">Address</h4>
                     <p className="text-text-secondary text-sm leading-relaxed">
-                      Shakarpur Main market, Laxmi Nagar, Delhi, 110092
+                      D-15, Shakarpur Main market Metro pilar no. 49, Laxmi Nagar, Delhi, 110092
                     </p>
                   </div>
                 </div>
