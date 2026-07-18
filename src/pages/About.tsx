@@ -59,13 +59,15 @@ export default function About() {
           <div id="about-hero-text" className="lg:col-span-7 space-y-6 text-left">
             <span
               id="about-badge"
-              className="inline-flex items-center gap-1.5 rounded-full bg-blue-100/80 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-primary border border-blue-200/40"
+              className="inline-flex items-center gap-2 rounded-full bg-[#252B7B]/10 border border-[#252B7B]/25 px-5 py-2 text-xs font-black uppercase tracking-widest text-[#171C59] shadow-sm backdrop-blur-md"
             >
-              Empowering Hindi-Medium Students
+              <Sparkles className="h-4 w-4 animate-pulse text-[#4F46E5]" />
+              EMPOWERING HINDI-MEDIUM STUDENTS
             </span>
             
-            <h1 id="about-h1" className="font-sans text-4xl font-extrabold tracking-tight text-text-primary sm:text-5xl lg:text-6xl leading-[1.15]">
-              Meet <span className="text-primary">Raj Sir</span>: The Architect of Modern Fluency.
+            <h1 id="about-h1" className="font-sans text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-[#171C59]">
+              Meet <span className="bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent">Raj Sir</span>: <br />
+              The Architect of Modern Fluency.
             </h1>
             
             <p id="about-subtext" className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-xl">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera } from 'lucide-react';
+import { Camera, Sparkles } from 'lucide-react';
 import { galleryItems } from '../data';
 
 export default function Gallery() {
@@ -10,13 +10,13 @@ export default function Gallery() {
         <div className="mx-auto max-w-4xl px-6 md:px-8 space-y-4">
           <span
             id="gallery-badge"
-            className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
+            className="inline-flex items-center gap-2 rounded-full bg-[#252B7B]/10 border border-[#252B7B]/25 px-5 py-2 text-xs font-black uppercase tracking-widest text-[#171C59] shadow-sm backdrop-blur-md"
           >
-            <Camera className="h-3.5 w-3.5" />
-            Inside Our Campus
+            <Sparkles className="h-4 w-4 animate-pulse text-[#4F46E5]" />
+            INSIDE OUR CAMPUS
           </span>
-          <h1 id="gallery-title" className="font-sans text-4xl font-extrabold tracking-tight text-text-primary sm:text-5xl">
-            Visual <span className="text-primary">Journey</span>
+          <h1 id="gallery-title" className="font-sans text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-[#171C59]">
+            Visual <span className="bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent">Journey</span>
           </h1>
           <p id="gallery-subtext" className="text-text-secondary text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Take a sneak peek at our highly engaging classrooms, confidence building activities, and interactive spoken English sessions.

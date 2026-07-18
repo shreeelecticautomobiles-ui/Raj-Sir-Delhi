@@ -163,8 +163,20 @@ export default function Home() {
         <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 relative grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
           {/* Hero Left Info */}
           <div id="hero-info" className="lg:col-span-7 space-y-6 text-left">
-            <h1 id="hero-headline" className="font-sans text-4xl font-extrabold tracking-tight text-text-primary sm:text-5xl lg:text-6xl leading-[1.15]">
-              Speak English <span className="text-primary">Confidently</span> with Raj Sir
+            <span
+              id="hero-prestige-tag"
+              className="inline-flex items-center gap-2 rounded-full bg-[#252B7B]/10 border border-[#252B7B]/25 px-5 py-2 text-xs font-black uppercase tracking-widest text-[#171C59] shadow-sm backdrop-blur-md animate-fade-in"
+            >
+              <Sparkles className="h-4 w-4 animate-pulse text-[#4F46E5]" />
+              DELHI'S NO.1 ENGLISH & LANGUAGE ACADEMY
+            </span>
+
+            <h1 id="hero-headline" className="font-sans text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-[#171C59]">
+              Speak English <br />
+              <span className="bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent">
+                Confidently
+              </span> <br className="hidden sm:inline" />
+              with Raj Sir
             </h1>
             
             <p id="hero-subtext" className="text-text-secondary text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl">
