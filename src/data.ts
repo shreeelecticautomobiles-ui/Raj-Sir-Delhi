@@ -237,6 +237,48 @@ export const galleryItems: GalleryItem[] = [
     title: 'MNC Interview Preparation',
     image: 'https://i.ibb.co/knK8G2j/IMG-20260717-WA0051.jpg',
     description: 'Mock interview practices simulating real-world job interview questions.',
+  },
+  {
+    id: 'g-9',
+    category: 'Classrooms',
+    title: 'Interactive Group Discussions',
+    image: 'https://i.ibb.co/WpFHm2M6/IMG-20260718-WA0029.jpg',
+    description: 'Students participating in a group communication exercise.',
+  },
+  {
+    id: 'g-10',
+    category: 'Students',
+    title: 'Individual Presentation Drills',
+    image: 'https://i.ibb.co/FL33Q5ft/IMG-20260718-WA0030.jpg',
+    description: 'Developing independent public speaking skills under supervision.',
+  },
+  {
+    id: 'g-11',
+    category: 'Classrooms',
+    title: 'Confidence Building Activities',
+    image: 'https://i.ibb.co/MDSff7g4/IMG-20260718-WA0032.jpg',
+    description: 'Fun and interactive public speaking games to remove fear.',
+  },
+  {
+    id: 'g-12',
+    category: 'Classrooms',
+    title: 'Active Learning Environment',
+    image: 'https://i.ibb.co/RpJGw9cz/IMG-20260718-WA0033.jpg',
+    description: 'Dynamic translation sessions to build spontaneous response times.',
+  },
+  {
+    id: 'g-13',
+    category: 'Students',
+    title: 'Doubt Clearing Sessions',
+    image: 'https://i.ibb.co/nshZzW0d/IMG-20260718-WA0042.jpg',
+    description: 'One-on-one personal guidance for neutral accent training.',
+  },
+  {
+    id: 'g-14',
+    category: 'Classrooms',
+    title: 'Spoken English Learning Circles',
+    image: 'https://i.ibb.co/Hf9MPFzq/IMG-20260718-WA0043.jpg',
+    description: 'Group-based pronunciation drills to build corporate-level vocabulary.',
   }
 ];
 
