@@ -40,15 +40,20 @@ export default function Navbar() {
             : 'bg-white/80 backdrop-blur-md border-b border-gray-200/30 rounded-none py-4 px-6 md:px-8'
         }`}
       >
-        {/* Brand Logo with beautiful accent gradient */}
+        {/* Brand Logo with beautiful custom image */}
         <Link
           id="nav-brand-logo"
           to="/"
           className="flex items-center gap-2.5 font-sans text-xl font-bold tracking-tight transition-colors"
           onClick={closeMenu}
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-primary to-indigo-600 shadow-md shadow-primary/20">
-            <Globe className="h-5 w-5 text-white animate-[spin_20s_linear_infinite]" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden shadow-md shadow-primary/10 border border-gray-100/50 bg-white">
+            <img 
+              src="https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg" 
+              alt="Raj Sir Delhi Logo" 
+              className="h-full w-full object-cover"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <span className="text-text-primary font-extrabold tracking-tight">
             Raj Sir <span className="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">Delhi</span>

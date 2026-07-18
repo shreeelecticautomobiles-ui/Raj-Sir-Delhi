@@ -14,9 +14,16 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
       }`}>
         {/* Brand Blurb */}
         <div id="footer-col-brand" className="space-y-4">
-          <Link to="/" className="flex items-center gap-2 font-sans text-xl font-bold tracking-tight text-white">
-            <Globe className="h-6 w-6 text-primary" />
-            <span>Raj Sir <span className="text-primary">Delhi</span></span>
+          <Link to="/" className="flex items-center gap-2.5 font-sans text-xl font-bold tracking-tight text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white shadow-md border border-gray-800/40">
+              <img 
+                src="https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg" 
+                alt="Raj Sir Delhi Logo" 
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <span>Raj Sir <span className="bg-gradient-to-r from-primary to-indigo-400 bg-clip-text text-transparent">Delhi</span></span>
           </Link>
           <p className="text-gray-400 text-sm leading-relaxed">
             Delhi's premier language training institute helping students transition from hesitation to high-impact professional fluency. Specializing in Hindi-to-English coaching, German Goethe exam prep, and corporate Chinese.
