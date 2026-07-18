@@ -38,17 +38,6 @@ export interface GalleryItem {
   description: string;
 }
 
-export interface CaseStudy {
-  id: string;
-  label: string;
-  name: string;
-  title: string;
-  paragraph: string;
-  quote: string;
-  statBadge: string;
-  image: string;
-}
-
 export const testimonials: Testimonial[] = [
   /* CLIENT: confirm this is a real review, replace avatar with real photo or remove avatar entirely */
   {
@@ -279,29 +268,6 @@ export const galleryItems: GalleryItem[] = [
     title: 'Spoken English Learning Circles',
     image: 'https://i.ibb.co/Hf9MPFzq/IMG-20260718-WA0043.jpg',
     description: 'Group-based pronunciation drills to build corporate-level vocabulary.',
-  }
-];
-
-export const caseStudies: CaseStudy[] = [
-  {
-    id: 'cs-1',
-    label: 'CASE STUDY #01',
-    name: 'Rahul Sharma',
-    title: 'From Fear to a Job at Google',
-    paragraph: "Rahul grew up in rural Bihar and did his schooling in Hindi medium. When he entered the corporate tech sector, he froze during client presentation rounds, feeling inferior to native speakers. After joining Raj Sir's Spoken English Mastery program, he dedicated 3 months to intensive confidence training, neutral accent correction, and corporate speech frameworks.",
-    quote: "The fear of being judged completely vanished when Raj Sir told me, 'Hindi is your strength, English is just a skill.' Within three months, I became the primary presenter for my squad.",
-    statBadge: 'Software Engineer @ Google — 150% Salary Hike Post-Course',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80',
-  },
-  {
-    id: 'cs-2',
-    label: 'CASE STUDY #02',
-    name: 'Pooja Hegde',
-    title: 'Breaking the Barrier of Public Speaking',
-    paragraph: "Pooja, a brilliant management graduate, had the data but lacked the stage command. She would get severe stage fright and avoid raising her hand during national academic summits. At Raj Sir's institute, she was pushed into active daily debate rounds, microphone speaking training, and weekly mock corporate boardrooms.",
-    quote: "Raj Sir was like a Bade Bhaiya (big brother) to me. He pointed out my micro-hesitations and taught me how to pace my breathing while speaking on a big stage.",
-    statBadge: 'Consultant @ Deloitte — Recipient of Best Speaker Award',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80',
   }
 ];
 
