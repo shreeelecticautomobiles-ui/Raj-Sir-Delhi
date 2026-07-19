@@ -40,13 +40,13 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const heroSlides = [
   {
-    image: 'https://i.ibb.co/GfJ32QCc/IMG-20260717-WA0010-1.jpg',
+    image: 'https://i.ibb.co/VYhsqdm5/Screenshot-2026-07-19-131240.png',
     title: 'Raj Sir Teaching Students',
     tag: 'TRANSFORMATION',
     description: 'Our proprietary Hindi-to-English translation method lets you speak naturally without memorizing rules.'
   },
   {
-    image: 'https://i.ibb.co/HLdbh1vB/IMG-20260717-WA0008.jpg',
+    image: 'https://i.ibb.co/FL33Q5ft/IMG-20260718-WA0030.jpg',
     title: 'Interactive Group Drills',
     tag: 'CAREER SUCCESS',
     description: 'Dynamic team debates and sentence formulation challenges that banish hesitation forever.'
@@ -58,15 +58,15 @@ const heroSlides = [
     description: 'Daily podium presentation drills designed to build stage charisma and magnetic body language.'
   },
   {
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop&q=80',
+    image: 'https://i.ibb.co/s9WrgQZ4/IMG-20260717-WA0040.jpg',
     title: 'German Language Classes',
-    tag: 'CEFR A1-B2',
+    tag: 'Activities',
     description: 'Comprehensive preparation for official Goethe Institute exams under certified instruction.'
   },
   {
-    image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&auto=format&fit=crop&q=80',
+    image: 'https://i.ibb.co/RpJGw9cz/IMG-20260718-WA0033.jpg',
     title: 'Chinese Language Course',
-    tag: 'CORPORATE HSK',
+    tag: 'Pesonality deve',
     description: 'Syllabus-focused Chinese language mastery, tailored for global career advancement.'
   },
   {
