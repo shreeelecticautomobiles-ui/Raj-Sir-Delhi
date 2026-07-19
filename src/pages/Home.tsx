@@ -45,6 +45,43 @@ export default function Home() {
   // Video modal player state
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
+  // Premium Transformation Journey active step state
+  const [activeStep, setActiveStep] = useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 4);
+    }, 1500); // 6 seconds total / 4 steps = 1500ms
+    return () => clearInterval(interval);
+  }, []);
+
+  const premiumJourneySteps = [
+    {
+      step: "01",
+      title: "LEARN ENGLISH",
+      sub: "Master core sentence models, native communication patterns, and professional vocabulary. Break free from internal translation.",
+      icon: <Languages className="h-5 w-5" />
+    },
+    {
+      step: "02",
+      title: "BUILD CONFIDENCE",
+      sub: "Overcome fear of judgment and stage anxiety through daily interactive podium speech simulations and live debates.",
+      icon: <Sparkles className="h-5 w-5" />
+    },
+    {
+      step: "03",
+      title: "BECOME FLUENT",
+      sub: "Articulate complex thoughts naturally and spontaneously. Perfect your pronunciation, vocal cadence, and sentence flow.",
+      icon: <Volume2 className="h-5 w-5" />
+    },
+    {
+      step: "04",
+      title: "CAREER SUCCESS",
+      sub: "Unlock high-impact career progression, excel in premium corporate interviews, and command authority in boardrooms.",
+      icon: <Award className="h-5 w-5" />
+    }
+  ];
+
   const nextCourse = () => {
     setCourseIndex((prev) => (prev + 1) % courses.length);
   };
@@ -143,15 +180,6 @@ export default function Home() {
     { id: 'wsj-7', label: 'Business Owners', icon: <ArrowUpRight className="h-6 w-6" /> },
     { id: 'wsj-8', label: 'Interview Preparation', icon: <FileText className="h-6 w-6" /> },
     { id: 'wsj-9', label: 'Personality Development', icon: <UserCheck className="h-6 w-6" /> }
-  ];
-
-  const journeySteps = [
-    { label: 'Book Free Demo', icon: <Calendar className="h-6 w-6" /> },
-    { label: 'Attend First Class', icon: <Users2 className="h-6 w-6" /> },
-    { label: 'Join Batch', icon: <CheckCircle className="h-6 w-6" /> },
-    { label: 'Daily Speaking Practice', icon: <Volume2 className="h-6 w-6" /> },
-    { label: 'Build Confidence', icon: <Sparkles className="h-6 w-6" /> },
-    { label: 'Become Fluent', icon: <Award className="h-6 w-6" /> }
   ];
 
   return (
@@ -627,56 +655,266 @@ export default function Home() {
       </section>
 
       {/* STUDENT JOURNEY STEPPER SECTION */}
-      <section id="student-journey-section" className="bg-[#F1F3FF] py-20 border-y border-gray-100">
-        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-16">
-          {/* Heading */}
+      <section id="student-journey-section" className="bg-[#F8FAFC] py-24 border-y border-slate-100 relative overflow-hidden">
+        {/* Style tag containing optimized smooth path glow animations */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes lineGlowTravel {
+            0% {
+              stroke-dashoffset: 100;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+          .animated-glow-line {
+            stroke-dasharray: 25 75;
+            animation: lineGlowTravel 6s linear infinite;
+          }
+          .animated-glow-line-core {
+            stroke-dasharray: 10 90;
+            animation: lineGlowTravel 6s linear infinite;
+          }
+          .glow-filter {
+            filter: drop-shadow(0px 0px 12px rgba(37, 99, 235, 0.75)) drop-shadow(0px 0px 4px rgba(37, 99, 235, 0.4));
+          }
+        ` }} />
+
+        {/* Ambient background blur circles */}
+        <div className="absolute top-[20%] left-[10%] h-80 w-80 rounded-full bg-blue-100/20 blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-[20%] right-[10%] h-80 w-80 rounded-full bg-purple-100/20 blur-[100px] pointer-events-none"></div>
+
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-20 relative z-10">
+          {/* Section Heading */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Your Roadmap</span>
-            <h2 className="font-sans text-3xl font-extrabold tracking-tight text-[#141B2B] sm:text-4xl">
-              Your Student Transformation Journey
+            <span
+              id="journey-badge"
+              className="inline-flex items-center gap-2 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/20 px-5 py-2 text-xs font-black uppercase tracking-widest text-[#2563EB] shadow-sm backdrop-blur-md"
+            >
+              <Sparkles className="h-4 w-4 animate-pulse text-[#2563EB]" />
+              YOUR CONFIDENCE TRANSFORMATION
+            </span>
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none text-[#171C59]">
+              YOUR TRANSFORMATION JOURNEY
             </h2>
-            <p className="text-[#434655] text-base leading-relaxed">
-              We guide you step-by-step from day one. Here is how we build your confidence and make you fluent.
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+              From hesitation to fluency, confidence and career success.
             </p>
           </div>
 
-          {/* 6-step horizontal timeline stepper with custom numbers & lines */}
+          {/* Stepper with Animated Connecting Path */}
           <div className="relative">
-            {/* Connecting line on desktop */}
-            <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-0.5 bg-gray-200 z-0"></div>
+            
+            {/* Desktop SVG Path Connection */}
+            <div className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-[6px] pointer-events-none z-0">
+              <svg className="w-full h-full overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="glow-grad-h" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
+                    <stop offset="20%" stopColor="#2563EB" stopOpacity="1" />
+                    <stop offset="80%" stopColor="#3B82F6" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="line-base-grad-h" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                    <stop offset="50%" stopColor="#2563EB" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
-              {journeySteps.map((step, idx) => (
-                <div key={idx} id={`journey-step-${idx}`} className="flex flex-col items-center text-center space-y-4">
-                  {/* Step bubble with index and icon */}
-                  <div className="relative flex items-center justify-center">
-                    {/* Circle badge */}
-                    <div className="h-[88px] w-[88px] rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
-                      {step.icon}
-                    </div>
-                    {/* Step number badge */}
-                    <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-white font-mono text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm">
-                      {idx + 1}
-                    </span>
-                  </div>
+                {/* Base Light-Gray Track Line */}
+                <line 
+                  x1="0%" 
+                  y1="50%" 
+                  x2="100%" 
+                  y2="50%" 
+                  stroke="url(#line-base-grad-h)" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                />
 
-                  {/* Step label text */}
-                  <div className="space-y-1.5 px-2">
-                    <h4 className="font-sans font-bold text-xs text-[#141B2B] uppercase tracking-wider">
-                      {step.label}
-                    </h4>
-                    <p className="text-[11px] text-[#434655] leading-relaxed">
-                      {idx === 0 && "Reserve a complimentary slot. Experience Raj Sir's native face-to-face teaching."}
-                      {idx === 1 && "Interactive trial. Engage in practical discussions and explore our batches."}
-                      {idx === 2 && "Flexible timings. Grouped with peers matching your current language level."}
-                      {idx === 3 && "Daily podium speeches, debate sessions & practical grammar exercises."}
-                      {idx === 4 && "Eliminate public speaking hesitation. Refine pronunciation and body language."}
-                      {idx === 5 && "Launch your global career with premium multilingual speaking proficiency."}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                {/* Outer Blurred Neon Glow Path */}
+                <line
+                  x1="0%"
+                  y1="50%"
+                  x2="100%"
+                  y2="50%"
+                  stroke="#2563EB"
+                  strokeWidth="12"
+                  strokeLinecap="round"
+                  opacity="0.25"
+                  filter="blur(6px)"
+                  pathLength="100"
+                  className="animated-glow-line"
+                />
+
+                {/* Medium Vivid Glowing Blue Path */}
+                <line
+                  x1="0%"
+                  y1="50%"
+                  x2="100%"
+                  y2="50%"
+                  stroke="url(#glow-grad-h)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  opacity="0.95"
+                  pathLength="100"
+                  className="animated-glow-line glow-filter"
+                />
+
+                {/* Ultra Sharp Intense White Inner Core */}
+                <line
+                  x1="0%"
+                  y1="50%"
+                  x2="100%"
+                  y2="50%"
+                  stroke="#FFFFFF"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  pathLength="100"
+                  className="animated-glow-line-core"
+                />
+              </svg>
             </div>
+
+            {/* Mobile SVG Path Connection */}
+            <div className="lg:hidden absolute top-[52px] bottom-[160px] left-1/2 -translate-x-1/2 w-[6px] pointer-events-none z-0">
+              <svg className="w-full h-full overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="glow-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
+                    <stop offset="20%" stopColor="#2563EB" stopOpacity="1" />
+                    <stop offset="80%" stopColor="#3B82F6" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="line-base-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                    <stop offset="50%" stopColor="#2563EB" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+
+                {/* Base Light-Gray Track Line */}
+                <line 
+                  x1="50%" 
+                  y1="0%" 
+                  x2="50%" 
+                  y2="100%" 
+                  stroke="url(#line-base-grad-v)" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                />
+
+                {/* Outer Blurred Neon Glow Path */}
+                <line
+                  x1="50%"
+                  y1="0%"
+                  x2="50%"
+                  y2="100%"
+                  stroke="#2563EB"
+                  strokeWidth="12"
+                  strokeLinecap="round"
+                  opacity="0.25"
+                  filter="blur(6px)"
+                  pathLength="100"
+                  className="animated-glow-line"
+                />
+
+                {/* Medium Vivid Glowing Blue Path */}
+                <line
+                  x1="50%"
+                  y1="0%"
+                  x2="50%"
+                  y2="100%"
+                  stroke="url(#glow-grad-v)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  opacity="0.95"
+                  pathLength="100"
+                  className="animated-glow-line glow-filter"
+                />
+
+                {/* Ultra Sharp Intense White Inner Core */}
+                <line
+                  x1="50%"
+                  y1="0%"
+                  x2="50%"
+                  y2="100%"
+                  stroke="#FFFFFF"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  pathLength="100"
+                  className="animated-glow-line-core"
+                />
+              </svg>
+            </div>
+
+            {/* Stepper Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
+              {premiumJourneySteps.map((step, idx) => {
+                const isActive = activeStep === idx;
+                return (
+                  <div
+                    key={idx}
+                    id={`premium-journey-step-${idx}`}
+                    className={`relative flex flex-col items-center text-center p-8 rounded-[24px] transition-all duration-700 bg-white border ${
+                      isActive 
+                        ? 'border-[#2563EB]/40 shadow-[0_24px_50px_rgba(37,99,235,0.12)] scale-[1.03] z-10' 
+                        : 'border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] scale-100 hover:border-[#2563EB]/20 hover:shadow-lg hover:scale-[1.01]'
+                    }`}
+                  >
+                    {/* Active Soft background radial pulse */}
+                    {isActive && (
+                      <div className="absolute inset-0 -z-10 rounded-[24px] bg-gradient-to-b from-[#2563EB]/5 to-transparent blur-xl animate-pulse" />
+                    )}
+
+                    {/* Circular Badge Holder */}
+                    <div className="relative flex items-center justify-center mb-6">
+                      {/* Pulsing glow background */}
+                      <div className={`absolute inset-0 rounded-full blur-md transition-all duration-700 ${
+                        isActive 
+                          ? 'bg-[#2563EB]/20 scale-125' 
+                          : 'bg-transparent scale-100'
+                      }`} />
+
+                      {/* Main Circle holding Icon */}
+                      <div className={`h-16 w-16 rounded-full flex items-center justify-center transition-all duration-700 relative z-10 ${
+                        isActive 
+                          ? 'bg-gradient-to-br from-[#2563EB] to-[#1E40AF] text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] scale-110' 
+                          : 'bg-[#F8FAFC] border-2 border-slate-100 text-slate-400'
+                      }`}>
+                        <div className={`transition-colors duration-700 ${isActive ? 'text-white' : 'text-slate-500'}`}>
+                          {step.icon}
+                        </div>
+                      </div>
+
+                      {/* Step Number Badge */}
+                      <span className={`absolute -top-1 -right-1 h-6 w-6 rounded-full font-mono text-xs font-black flex items-center justify-center border-2 transition-all duration-700 z-20 ${
+                        isActive 
+                          ? 'bg-[#2563EB] text-white border-white shadow-md' 
+                          : 'bg-slate-100 text-slate-500 border-white'
+                      }`}>
+                        {step.step}
+                      </span>
+                    </div>
+
+                    {/* Step Title & Sub */}
+                    <div className="space-y-3">
+                      <h4 className={`font-sans font-black text-sm uppercase tracking-widest transition-colors duration-700 ${
+                        isActive ? 'text-[#2563EB]' : 'text-slate-900'
+                      }`}>
+                        {step.title}
+                      </h4>
+                      <p className={`text-xs md:text-sm leading-relaxed transition-all duration-700 ${
+                        isActive ? 'text-slate-600 font-medium' : 'text-slate-500'
+                      }`}>
+                        {step.sub}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
           </div>
         </ScrollReveal>
       </section>
