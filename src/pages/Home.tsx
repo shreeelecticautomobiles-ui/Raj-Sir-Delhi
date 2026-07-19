@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Star,
@@ -44,6 +44,18 @@ export default function Home() {
 
   // Video modal player state
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  // Transformation Journey active step
+  const [activeStep, setActiveStep] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 12);
+    }, 2500); // 2.5s per step, looping infinitely in 30 seconds
+    return () => clearInterval(interval);
+  }, [isPlaying]);
 
   const nextCourse = () => {
     setCourseIndex((prev) => (prev + 1) % courses.length);
@@ -146,12 +158,114 @@ export default function Home() {
   ];
 
   const journeySteps = [
-    { label: 'Book Free Demo', icon: <Calendar className="h-6 w-6" /> },
-    { label: 'Attend First Class', icon: <Users2 className="h-6 w-6" /> },
-    { label: 'Join Batch', icon: <CheckCircle className="h-6 w-6" /> },
-    { label: 'Daily Speaking Practice', icon: <Volume2 className="h-6 w-6" /> },
-    { label: 'Build Confidence', icon: <Sparkles className="h-6 w-6" /> },
-    { label: 'Become Fluent', icon: <Award className="h-6 w-6" /> }
+    {
+      stepNum: "DAY 1",
+      phase: "THE STARTING BLOCK",
+      label: "HESITATION",
+      outcome: "I feel hesitant & translation keeps me silent.",
+      description: "Fear of making grammatical mistakes, mother tongue influence (MTI), and translating in your head before speaking.",
+      icon: "🔇",
+      tip: "It's not your fault. Traditional education taught rules, not fluent spoken reflexes."
+    },
+    {
+      stepNum: "STEP 01",
+      phase: "INITIATION",
+      label: "BOOK FREE DEMO",
+      outcome: "I take the first micro-step.",
+      description: "Experience Raj Sir's native classroom spoken training method risk-free. No theoretical lectures—only pure practical speaking.",
+      icon: "📅",
+      tip: "Reserve your seat in seconds via WhatsApp or dynamic booking."
+    },
+    {
+      stepNum: "STEP 02",
+      phase: "EVALUATION",
+      label: "ATTEND YOUR FIRST CLASS",
+      outcome: "I get friendly evaluation.",
+      description: "Participate in a highly interactive, welcoming trial session. Map out your starting baseline with expert support.",
+      icon: "👥",
+      tip: "Zero evaluation stress. We focus entirely on friendly guidance."
+    },
+    {
+      stepNum: "STEP 03",
+      phase: "PLACEMENT",
+      label: "JOIN YOUR BATCH",
+      outcome: "I find my matched-level peers.",
+      description: "Get placed in a curated small batch matching your fluency level. No embarrassment, only peer-to-peer acceleration.",
+      icon: "✅",
+      tip: "Morning & evening slots tailored for students and corporate workers."
+    },
+    {
+      stepNum: "STEP 04",
+      phase: "HABIT BUILDER",
+      label: "DAILY SPEAKING PRACTICE",
+      outcome: "I start practicing daily.",
+      description: "Engage in intensive spoken drills, sentence-building frameworks, and real-time conversation feedback loops.",
+      icon: "🗣️",
+      tip: "80% of class time is dedicated to student speech exercises."
+    },
+    {
+      stepNum: "STEP 05",
+      phase: "BREAKTHROUGH",
+      label: "BUILD CONFIDENCE",
+      outcome: "I overcome the internal block.",
+      description: "The mental block shatters. Speak on general topics spontaneously without freezing or second-guessing yourself.",
+      icon: "✨",
+      tip: "Witness public speaking hesitation drop by 50% within two weeks."
+    },
+    {
+      stepNum: "STEP 06",
+      phase: "COMMAND",
+      label: "PUBLIC SPEAKING",
+      outcome: "I command the official stage.",
+      description: "Stand on our official campus podium. Master vocal modulation, microphone confidence, and positive body posture.",
+      icon: "🎤",
+      tip: "You will stand tall and address an audience completely at ease."
+    },
+    {
+      stepNum: "STEP 07",
+      phase: "CAREER BOOSTER",
+      label: "INTERVIEW PREPARATION",
+      outcome: "I master self-introduction.",
+      description: "Crack premium corporate roles. Tailored mock interview rounds covering tricky HR questions and elevator pitches.",
+      icon: "📝",
+      tip: "We polish your professional profile pitch and presentation style."
+    },
+    {
+      stepNum: "STEP 08",
+      phase: "CORPORATE FLUENCY",
+      label: "PROFESSIONAL COMMUNICATION",
+      outcome: "I lead corporate meetings.",
+      description: "Acquire professional corporate vocabulary, presentation techniques, negotiation terms, and email etiquette.",
+      icon: "💼",
+      tip: "Learn to articulate team updates with natural professional authority."
+    },
+    {
+      stepNum: "STEP 09",
+      phase: "CHARISMA",
+      label: "PERSONALITY DEVELOPMENT",
+      outcome: "I project executive presence.",
+      description: "Align your professional body language, handshake cues, and charming interpersonal aura with global standards.",
+      icon: "🌟",
+      tip: "Unlock elite corporate mannerisms and magnetic social skills."
+    },
+    {
+      stepNum: "STEP 10",
+      phase: "ACCELERATION",
+      label: "CAREER TRANSFORMATION",
+      outcome: "I conquer global opportunities.",
+      description: "Break career glass ceilings. Demand promotions, deliver high-stakes pitches, and converse with global teams as an equal.",
+      icon: "🚀",
+      tip: "Join our alumni community currently leading in Google, Amazon, Infosys, and more."
+    },
+    {
+      stepNum: "STEP 11",
+      phase: "DESTINATION",
+      label: "BECOME FLUENT",
+      outcome: "Today I speak with flow & flair.",
+      description: "Absolute self-assurance. You think in English, express complex ideas seamlessly, and command respect instantly.",
+      icon: "🏆",
+      tip: "The final step to complete native-like speaker authority and success."
+    }
   ];
 
   return (
@@ -626,58 +740,248 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* STUDENT JOURNEY STEPPER SECTION */}
-      <section id="student-journey-section" className="bg-[#F1F3FF] py-20 border-y border-gray-100">
-        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-16">
-          {/* Heading */}
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Your Roadmap</span>
-            <h2 className="font-sans text-3xl font-extrabold tracking-tight text-[#141B2B] sm:text-4xl">
-              Your Student Transformation Journey
+      {/* 4.5 THE TRANSFORMATION JOURNEY - Apple + Linear + Stripe Level */}
+      <section 
+        id="student-journey-section" 
+        className="bg-[#0B0F33] text-white py-24 md:py-32 relative overflow-hidden border-y border-white/[0.05]"
+      >
+        {/* Ambient Cosmic Background Glows */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#4F46E5]/10 blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-[#06B6D4]/10 blur-[150px] pointer-events-none" />
+        
+        {/* Subtle tech background grid lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
+
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-20 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#4F46E5]/20 border border-[#818CF8]/30 px-5 py-2 text-xs font-black uppercase tracking-widest text-slate-200 shadow-xl backdrop-blur-md">
+              <Sparkles className="h-4 w-4 animate-pulse text-[#38BDF8]" />
+              THE TRANSFORMATION JOURNEY
+            </span>
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[1.05] text-white">
+              Your Confidence <br />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#4F46E5] bg-clip-text text-transparent">
+                Transformation Journey
+              </span>
             </h2>
-            <p className="text-[#434655] text-base leading-relaxed">
-              We guide you step-by-step from day one. Here is how we build your confidence and make you fluent.
+            <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-medium">
+              We guide you step-by-step from day one hesitation to absolute fluent mastery. Hover or tap on any stage below to witness your future self unfold.
             </p>
           </div>
 
-          {/* 6-step horizontal timeline stepper with custom numbers & lines */}
-          <div className="relative">
-            {/* Connecting line on desktop */}
-            <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-0.5 bg-gray-200 z-0"></div>
+          {/* Interactive Journey Timeline Container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Left Panel: Real-Time Transformation Dashboard (Sticky on Desktop) */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+              <div className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-[32px] p-8 md:p-10 shadow-[0_32px_80px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                {/* Accent glow on card border */}
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#4F46E5]" />
+                
+                {/* Active step progress track */}
+                <div className="absolute top-4 right-6 flex items-center gap-1.5 bg-white/[0.05] border border-white/[0.08] px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span>Phase {activeStep + 1} / 12</span>
+                </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
-              {journeySteps.map((step, idx) => (
-                <div key={idx} id={`journey-step-${idx}`} className="flex flex-col items-center text-center space-y-4">
-                  {/* Step bubble with index and icon */}
-                  <div className="relative flex items-center justify-center">
-                    {/* Circle badge */}
-                    <div className="h-[88px] w-[88px] rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
-                      {step.icon}
-                    </div>
-                    {/* Step number badge */}
-                    <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-white font-mono text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm">
-                      {idx + 1}
+                <div className="space-y-6 pt-4">
+                  <div className="flex items-center gap-4">
+                    <span className="text-5xl md:text-6xl bg-white/[0.05] h-20 w-20 rounded-2xl flex items-center justify-center border border-white/[0.08] shadow-inner">
+                      {journeySteps[activeStep].icon}
                     </span>
+                    <div>
+                      <span className="text-[10px] uppercase tracking-widest font-black text-[#38BDF8]">
+                        {journeySteps[activeStep].phase}
+                      </span>
+                      <h4 className="font-sans text-xl md:text-2xl font-black text-white tracking-tight">
+                        {journeySteps[activeStep].label}
+                      </h4>
+                    </div>
                   </div>
 
-                  {/* Step label text */}
-                  <div className="space-y-1.5 px-2">
-                    <h4 className="font-sans font-bold text-xs text-[#141B2B] uppercase tracking-wider">
-                      {step.label}
-                    </h4>
-                    <p className="text-[11px] text-[#434655] leading-relaxed">
-                      {idx === 0 && "Reserve a complimentary slot. Experience Raj Sir's native face-to-face teaching."}
-                      {idx === 1 && "Interactive trial. Engage in practical discussions and explore our batches."}
-                      {idx === 2 && "Flexible timings. Grouped with peers matching your current language level."}
-                      {idx === 3 && "Daily podium speeches, debate sessions & practical grammar exercises."}
-                      {idx === 4 && "Eliminate public speaking hesitation. Refine pronunciation and body language."}
-                      {idx === 5 && "Launch your global career with premium multilingual speaking proficiency."}
+                  <hr className="border-white/[0.06]" />
+
+                  {/* Outcome Statement */}
+                  <div className="space-y-2">
+                    <span className="text-[10px] uppercase tracking-widest font-black text-slate-400 block">
+                      MY TRANSFORMATION OUTCOME
+                    </span>
+                    <p className="text-lg md:text-xl font-bold text-slate-100 leading-snug">
+                      "{journeySteps[activeStep].outcome}"
                     </p>
                   </div>
+
+                  {/* Deep Description */}
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-widest font-black text-slate-400 block">
+                      HOW RAJ SIR MAKES IT HAPPEN
+                    </span>
+                    <p className="text-sm text-slate-300 leading-relaxed font-medium">
+                      {journeySteps[activeStep].description}
+                    </p>
+                  </div>
+
+                  {/* Motivational Micro-Tip */}
+                  <div className="bg-gradient-to-r from-[#4F46E5]/10 to-[#38BDF8]/10 border border-white/[0.05] p-4 rounded-2xl flex items-start gap-3">
+                    <span className="text-lg shrink-0 mt-0.5">💡</span>
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest font-black text-[#38BDF8] block">
+                        COACHING STRATEGY
+                      </span>
+                      <p className="text-xs text-slate-200 font-medium leading-normal">
+                        {journeySteps[activeStep].tip}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Button trigger */}
+                  <div className="pt-2 flex items-center gap-4">
+                    <a
+                      href="https://wa.me/919015424048?text=Hi%2C%20I%27m%20ready%20to%20start%20my%20confidence%20transformation%20journey%21"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4F46E5] to-[#38BDF8] hover:from-[#38BDF8] hover:to-[#4F46E5] text-white font-black text-xs uppercase tracking-widest py-4 rounded-2xl shadow-[0_12px_30px_rgba(79,70,229,0.3)] transition-all cursor-pointer hover:scale-102"
+                    >
+                      <span>Begin This Phase</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Progress Bar Indicator */}
+              <div className="bg-white/[0.02] border border-white/[0.05] p-5 rounded-2xl space-y-2">
+                <div className="flex justify-between text-[10px] font-black tracking-widest uppercase text-slate-400">
+                  <span>Journey Progress</span>
+                  <span>{Math.round(((activeStep + 1) / 12) * 100)}% Complete</span>
+                </div>
+                <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-[#4F46E5] via-[#818CF8] to-[#38BDF8] rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${((activeStep + 1) / 12) * 100}%` }}
+                  />
+                </div>
+              </div>
             </div>
+
+            {/* Right Panel: Scrollable Vertical Track of 12 Steps */}
+            <div className="lg:col-span-7 relative pl-12 md:pl-16 space-y-8">
+              
+              {/* Vertical Connector Line Track */}
+              <div className="absolute left-[20px] md:left-[28px] top-4 bottom-4 w-[3px] bg-white/[0.05] rounded-full" />
+              
+              {/* Dynamic glowing active connector height */}
+              <div 
+                className="absolute left-[20px] md:left-[28px] top-4 w-[3px] bg-gradient-to-b from-[#4F46E5] via-[#818CF8] to-[#38BDF8] rounded-full transition-all duration-500 shadow-[0_0_15px_#4F46E5]"
+                style={{ 
+                  height: `calc(${(activeStep / 11) * 100}% - 8px)` 
+                }}
+              />
+
+              {/* Traveling Glowing Dot Indicator */}
+              <div 
+                className="absolute left-[20px] md:left-[28px] h-6 w-6 rounded-full bg-cyan-400 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out flex items-center justify-center shadow-[0_0_30px_#06B6D4,0_0_15px_#3B82F6] z-20"
+                style={{ 
+                  top: `calc(${4 + (activeStep / 11) * 92}% + 12px)`
+                }}
+              >
+                <div className="h-2.5 w-2.5 rounded-full bg-white animate-ping" />
+                <div className="absolute h-2 w-2 rounded-full bg-white" />
+              </div>
+
+              {journeySteps.map((step, idx) => {
+                const isActive = activeStep === idx;
+                const isCompleted = idx < activeStep;
+                
+                return (
+                  <div 
+                    key={idx}
+                    id={`journey-step-card-${idx}`}
+                    onMouseEnter={() => {
+                      setIsPlaying(false);
+                      setActiveStep(idx);
+                    }}
+                    onMouseLeave={() => {
+                      setIsPlaying(true);
+                    }}
+                    onClick={() => {
+                      setIsPlaying(false);
+                      setActiveStep(idx);
+                    }}
+                    className={`relative text-left group transition-all duration-500 cursor-pointer ${
+                      isActive 
+                        ? 'scale-[1.02] md:scale-[1.03] z-10' 
+                        : 'hover:scale-[1.01] opacity-60 hover:opacity-90'
+                    }`}
+                  >
+                    {/* Node Circle Indicator */}
+                    <div 
+                      className={`absolute left-[-44px] md:left-[-52px] top-1/2 -translate-y-1/2 h-8 w-8 rounded-full flex items-center justify-center z-10 transition-all duration-500 border-2 ${
+                        isActive
+                          ? 'bg-[#0B0F33] border-[#38BDF8] shadow-[0_0_20px_rgba(56,189,248,0.6)] scale-110'
+                          : isCompleted
+                            ? 'bg-[#4F46E5] border-[#4F46E5]'
+                            : 'bg-[#141B3B] border-white/10'
+                      }`}
+                    >
+                      {isCompleted ? (
+                        <CheckCircle className="h-4.5 w-4.5 text-white" />
+                      ) : (
+                        <span className={`text-[10px] font-black font-mono ${isActive ? 'text-[#38BDF8]' : 'text-slate-500'}`}>
+                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Step Card Content */}
+                    <div 
+                      className={`p-6 rounded-2xl border transition-all duration-500 ${
+                        isActive
+                          ? 'bg-gradient-to-br from-[#4F46E5]/15 to-[#38BDF8]/5 border-[#818CF8]/30 shadow-[0_20px_50px_rgba(79,70,229,0.15)]'
+                          : 'bg-white/[0.02] border-white/[0.05] hover:border-white/[0.1]'
+                      }`}
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md border ${
+                            isActive
+                              ? 'bg-[#38BDF8]/10 text-[#38BDF8] border-[#38BDF8]/20'
+                              : 'bg-white/[0.05] text-slate-400 border-white/[0.05]'
+                          }`}>
+                            {step.stepNum}
+                          </span>
+                          <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-500">
+                            {step.phase}
+                          </span>
+                        </div>
+                        
+                        <span className="text-xs font-mono font-medium text-slate-500">
+                          {idx === 0 ? "Initial Block" : idx === 11 ? "Fluency Mastery" : `Step ${idx}`}
+                        </span>
+                      </div>
+
+                      <h3 className={`font-sans text-lg font-black tracking-tight transition-colors duration-300 ${
+                        isActive ? 'text-white' : 'text-slate-300 group-hover:text-white'
+                      }`}>
+                        {step.label}
+                      </h3>
+
+                      <p className={`text-xs mt-1 font-semibold leading-relaxed transition-colors duration-300 ${
+                        isActive ? 'text-[#38BDF8]' : 'text-slate-400'
+                      }`}>
+                        {step.outcome}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+
           </div>
+
         </ScrollReveal>
       </section>
 
