@@ -897,18 +897,13 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* Step Title & Sub */}
-                    <div className="space-y-3">
-                      <h4 className={`font-sans font-black text-sm uppercase tracking-widest transition-colors duration-700 ${
+                    {/* Step Title */}
+                    <div className="space-y-1">
+                      <h4 className={`font-sans font-black text-sm sm:text-base uppercase tracking-widest transition-colors duration-700 ${
                         isActive ? 'text-[#2563EB]' : 'text-slate-900'
                       }`}>
                         {step.title}
                       </h4>
-                      <p className={`text-xs md:text-sm leading-relaxed transition-all duration-700 ${
-                        isActive ? 'text-slate-600 font-medium' : 'text-slate-500'
-                      }`}>
-                        {step.sub}
-                      </p>
                     </div>
                   </div>
                 );
