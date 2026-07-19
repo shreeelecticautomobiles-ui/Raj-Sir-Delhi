@@ -28,13 +28,14 @@ import {
   Home as HomeIcon,
   UserCheck,
   FileText,
-  BookOpen
+  BookOpen,
+  Camera
 } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import CountUp from '../components/CountUp';
 import ScrollReveal from '../components/ScrollReveal';
-import { courses, testimonials, videos } from '../data';
+import { courses, testimonials, videos, galleryItems } from '../data';
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -66,7 +67,7 @@ const heroSlides = [
   {
     image: 'https://i.ibb.co/RpJGw9cz/IMG-20260718-WA0033.jpg',
     title: 'Chinese Language Course',
-    tag: 'Pesonality deve',
+    tag: 'Pesonality Development',
     description: 'Syllabus-focused Chinese language mastery, tailored for global career advancement.'
   },
   {
@@ -106,18 +107,52 @@ export default function Home() {
     }
   };
 
+  const galleryScrollRef = React.useRef<HTMLDivElement>(null);
+  const [isGalleryHovered, setIsGalleryHovered] = useState(false);
+
+  const scrollGallery = (direction: 'left' | 'right') => {
+    const container = galleryScrollRef.current;
+    if (container) {
+      const scrollAmount = 380;
+      if (direction === 'left') {
+        container.scrollLeft -= scrollAmount;
+      } else {
+        container.scrollLeft += scrollAmount;
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    const container = galleryScrollRef.current;
+    if (!container) return;
+
+    let animationFrameId: number;
+    let lastTime = performance.now();
+    const speed = 40; // Pixels per second
+
+    const scroll = (time: number) => {
+      if (!isGalleryHovered) {
+        const delta = (time - lastTime) / 1000;
+        container.scrollLeft += speed * delta;
+
+        const halfWidth = container.scrollWidth / 2;
+        if (container.scrollLeft >= halfWidth) {
+          container.scrollLeft -= halfWidth;
+        }
+      }
+      lastTime = time;
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isGalleryHovered]);
+
   React.useEffect(() => {
     const slideInterval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
     return () => clearInterval(slideInterval);
-  }, []);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 4);
-    }, 750); // 3 seconds total / 4 steps = 750ms
-    return () => clearInterval(interval);
   }, []);
 
   const premiumJourneySteps = [
@@ -930,6 +965,19 @@ export default function Home() {
             ))}
           </div>
 
+          {/* Explore All Courses Link Button */}
+          <div className="flex justify-center pt-8">
+            <Button
+              id="home-explore-all-courses"
+              variant="secondary"
+              onClick={() => navigate('/courses')}
+              className="group flex items-center gap-2 px-8 py-4 text-sm font-extrabold"
+            >
+              <span>Explore All Courses</span>
+              <ArrowRight className="h-4.5 w-4.5 text-primary group-hover:translate-x-1.5 transition-transform duration-300" />
+            </Button>
+          </div>
+
         </ScrollReveal>
       </section>
 
@@ -1137,10 +1185,11 @@ export default function Home() {
                   <div
                     key={idx}
                     id={`premium-journey-step-${idx}`}
-                    className={`relative flex flex-col items-center text-center p-8 rounded-[24px] transition-all duration-700 bg-white border ${
+                    onClick={() => setActiveStep(idx)}
+                    className={`relative flex flex-col items-center text-center p-8 rounded-[24px] cursor-pointer transition-all duration-500 bg-white border ${
                       isActive 
-                        ? 'border-[#2563EB]/40 shadow-[0_24px_50px_rgba(37,99,235,0.12)] scale-[1.03] z-10' 
-                        : 'border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] scale-100 hover:border-[#2563EB]/20 hover:shadow-lg hover:scale-[1.01]'
+                        ? 'border-[#2563EB] shadow-[0_24px_50px_rgba(37,99,235,0.15)] scale-[1.03] z-10' 
+                        : 'border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] scale-100 hover:border-[#2563EB]/40 hover:shadow-lg hover:scale-[1.01]'
                     }`}
                   >
                     {/* Active Soft background radial pulse */}
@@ -1191,6 +1240,119 @@ export default function Home() {
               })}
             </div>
 
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 4.5 MINI CAMPUS GALLERY SECTION */}
+      <section id="mini-gallery-section" className="bg-white py-20 border-b border-slate-100 overflow-hidden">
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 space-y-12">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="text-left space-y-3 max-w-2xl">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 border border-indigo-100 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-[#4F46E5]">
+                <Camera className="h-3.5 w-3.5" />
+                Campus Highlights
+              </span>
+              <h2 className="font-sans text-3xl font-black tracking-tight text-[#171C59] sm:text-4xl md:text-5xl">
+                Life at Raj Sir Delhi
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Take a virtual tour of our lively spoken English classrooms, group interactive debates, and our proud student achievements.
+              </p>
+            </div>
+            
+            {/* Navigation buttons + explore button for Desktop */}
+            <div className="hidden md:flex items-center gap-4">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => scrollGallery('left')}
+                  className="h-11 w-11 rounded-full border border-slate-200 hover:border-[#252B7B] hover:bg-slate-50 flex items-center justify-center text-slate-600 hover:text-[#252B7B] transition-all duration-300 active:scale-95 cursor-pointer"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => scrollGallery('right')}
+                  className="h-11 w-11 rounded-full border border-slate-200 hover:border-[#252B7B] hover:bg-slate-50 flex items-center justify-center text-slate-600 hover:text-[#252B7B] transition-all duration-300 active:scale-95 cursor-pointer"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+              <Button
+                id="desktop-explore-gallery"
+                variant="secondary"
+                onClick={() => navigate('/gallery')}
+                className="group flex items-center gap-2 text-xs font-black uppercase tracking-wider py-3 px-6"
+              >
+                <span>Explore Gallery</span>
+                <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Horizontal Scrolling Wrapper */}
+          <div className="relative">
+            {/* Fade gradients on edges */}
+            <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-white to-transparent pointer-events-none z-10 hidden md:block"></div>
+            <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 hidden md:block"></div>
+
+            <div
+              ref={galleryScrollRef}
+              id="horizontal-gallery-scroll"
+              onMouseEnter={() => setIsGalleryHovered(true)}
+              onMouseLeave={() => setIsGalleryHovered(false)}
+              onTouchStart={() => setIsGalleryHovered(true)}
+              onTouchEnd={() => setIsGalleryHovered(false)}
+              className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth scrollbar-none"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {[...galleryItems, ...galleryItems].map((item, idx) => (
+                <div
+                  key={`${item.id}-${idx}`}
+                  onClick={() => navigate('/gallery')}
+                  className="min-w-[280px] sm:min-w-[340px] md:min-w-[380px] aspect-[4/3] relative rounded-2xl overflow-hidden border border-slate-100 shadow-[0_12px_24px_rgba(23,28,89,0.03)] hover:shadow-[0_16px_36px_rgba(23,28,89,0.08)] snap-start group cursor-pointer transition-all duration-300 shrink-0"
+                >
+                  {/* Image */}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300"></div>
+
+                  {/* Caption */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-left text-white z-10 flex flex-col justify-end">
+                    <span className="inline-block self-start px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase tracking-widest text-indigo-200 mb-1.5">
+                      {item.category}
+                    </span>
+                    <h3 className="font-sans font-black text-sm sm:text-base leading-tight tracking-tight text-white mb-1 group-hover:text-indigo-200 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-white/75 text-[11px] leading-relaxed font-medium line-clamp-1">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Explore Gallery button for Mobile */}
+          <div className="flex md:hidden justify-center pt-2">
+            <Button
+              id="mobile-explore-gallery"
+              variant="secondary"
+              onClick={() => navigate('/gallery')}
+              className="group flex items-center gap-2 px-8 py-3 text-sm font-extrabold"
+            >
+              <span>Explore Gallery</span>
+              <ArrowRight className="h-4.5 w-4.5 text-primary group-hover:translate-x-1.5 transition-transform duration-300" />
+            </Button>
           </div>
         </ScrollReveal>
       </section>
