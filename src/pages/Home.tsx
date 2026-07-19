@@ -675,7 +675,7 @@ export default function Home() {
             animation: lineGlowTravel 3s linear infinite;
           }
           .glow-filter {
-            filter: drop-shadow(0px 0px 12px rgba(37, 99, 235, 0.75)) drop-shadow(0px 0px 4px rgba(37, 99, 235, 0.4));
+            filter: drop-shadow(0px 0px 14px rgba(29, 78, 216, 0.95)) drop-shadow(0px 0px 4px rgba(30, 58, 138, 0.7));
           }
         ` }} />
 
@@ -709,15 +709,16 @@ export default function Home() {
               <svg className="w-full h-full overflow-visible" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="glow-grad-h" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
-                    <stop offset="20%" stopColor="#2563EB" stopOpacity="1" />
-                    <stop offset="80%" stopColor="#3B82F6" stopOpacity="1" />
-                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#1E3A8A" stopOpacity="0" />
+                    <stop offset="20%" stopColor="#1E40AF" stopOpacity="1" />
+                    <stop offset="50%" stopColor="#1D4ED8" stopOpacity="1" />
+                    <stop offset="80%" stopColor="#1E40AF" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0" />
                   </linearGradient>
                   <linearGradient id="line-base-grad-h" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#DBEAFE" stopOpacity="0.3" />
-                    <stop offset="50%" stopColor="#2563EB" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#93C5FD" stopOpacity="0.4" />
+                    <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#93C5FD" stopOpacity="0.4" />
                   </linearGradient>
                 </defs>
 
@@ -738,10 +739,10 @@ export default function Home() {
                   y1="50%"
                   x2="100%"
                   y2="50%"
-                  stroke="#2563EB"
-                  strokeWidth="12"
+                  stroke="#1D4ED8"
+                  strokeWidth="14"
                   strokeLinecap="round"
-                  opacity="0.25"
+                  opacity="0.45"
                   filter="blur(6px)"
                   pathLength="100"
                   className="animated-glow-line"
@@ -754,9 +755,9 @@ export default function Home() {
                   x2="100%"
                   y2="50%"
                   stroke="url(#glow-grad-h)"
-                  strokeWidth="4"
+                  strokeWidth="5"
                   strokeLinecap="round"
-                  opacity="0.95"
+                  opacity="1.0"
                   pathLength="100"
                   className="animated-glow-line glow-filter"
                 />
@@ -781,15 +782,16 @@ export default function Home() {
               <svg className="w-full h-full overflow-visible" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="glow-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
-                    <stop offset="20%" stopColor="#2563EB" stopOpacity="1" />
-                    <stop offset="80%" stopColor="#3B82F6" stopOpacity="1" />
-                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#1E3A8A" stopOpacity="0" />
+                    <stop offset="20%" stopColor="#1E40AF" stopOpacity="1" />
+                    <stop offset="50%" stopColor="#1D4ED8" stopOpacity="1" />
+                    <stop offset="80%" stopColor="#1E40AF" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0" />
                   </linearGradient>
                   <linearGradient id="line-base-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#DBEAFE" stopOpacity="0.3" />
-                    <stop offset="50%" stopColor="#2563EB" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="#DBEAFE" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#93C5FD" stopOpacity="0.4" />
+                    <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#93C5FD" stopOpacity="0.4" />
                   </linearGradient>
                 </defs>
 
@@ -810,10 +812,10 @@ export default function Home() {
                   y1="0%"
                   x2="50%"
                   y2="100%"
-                  stroke="#2563EB"
-                  strokeWidth="12"
+                  stroke="#1D4ED8"
+                  strokeWidth="14"
                   strokeLinecap="round"
-                  opacity="0.25"
+                  opacity="0.45"
                   filter="blur(6px)"
                   pathLength="100"
                   className="animated-glow-line"
@@ -826,9 +828,9 @@ export default function Home() {
                   x2="50%"
                   y2="100%"
                   stroke="url(#glow-grad-v)"
-                  strokeWidth="4"
+                  strokeWidth="5"
                   strokeLinecap="round"
-                  opacity="0.95"
+                  opacity="1.0"
                   pathLength="100"
                   className="animated-glow-line glow-filter"
                 />
