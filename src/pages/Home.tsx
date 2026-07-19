@@ -488,26 +488,9 @@ export default function Home() {
 
                   {/* Bottom details overlay (Glassmorphism card) */}
                   <div className="absolute bottom-6 left-6 right-6 z-10">
-                    <div className="backdrop-blur-xl bg-black/45 border border-white/10 rounded-2xl p-5 text-left space-y-2 shadow-2xl">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={activeSlide}
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -15 }}
-                          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                          <h4 className="font-sans font-black text-white text-base sm:text-lg leading-tight tracking-tight">
-                            {heroSlides[activeSlide].title}
-                          </h4>
-                          <p className="text-white/80 text-xs sm:text-sm leading-relaxed mt-1">
-                            {heroSlides[activeSlide].description}
-                          </p>
-                        </motion.div>
-                      </AnimatePresence>
-
+                    <div className="backdrop-blur-xl bg-black/45 border border-white/10 rounded-2xl p-4 text-left shadow-2xl">
                       {/* Slide Selector Indicators & Counter */}
-                      <div className="flex items-center gap-2 pt-3 border-t border-white/10 mt-3 justify-between">
+                      <div className="flex items-center gap-2 justify-between">
                         <div className="flex gap-1.5">
                           {heroSlides.map((_, idx) => (
                             <button

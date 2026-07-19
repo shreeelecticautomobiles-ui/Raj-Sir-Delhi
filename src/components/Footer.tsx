@@ -85,10 +85,10 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
               </div>
 
               {/* Navigation columns */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
+              <div className="flex flex-wrap gap-8 text-left">
                 
                 {/* Quick Links */}
-                <div className="space-y-4">
+                <div className="space-y-4 min-w-[200px]">
                   <h3 className="font-sans font-bold text-white tracking-widest text-xs uppercase">Quick Links</h3>
                   <ul className="space-y-2.5 text-sm text-slate-300">
                     <li>
@@ -101,50 +101,10 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
                       <Link to="/gallery" className="hover:text-blue-400 transition-colors">Photo Gallery</Link>
                     </li>
                     <li>
-                      <Link to="/courses" className="hover:text-blue-400 transition-colors">Batch Timings</Link>
+                      <Link to="/courses" className="hover:text-blue-400 transition-colors">Courses </Link>
                     </li>
                     <li>
-                      <Link to="/about" className="hover:text-blue-400 transition-colors">Our Methodology</Link>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Contact Us */}
-                <div className="space-y-4">
-                  <h3 className="font-sans font-bold text-white tracking-widest text-xs uppercase">Contact Us</h3>
-                  <ul className="space-y-3.5 text-sm text-slate-300">
-                    <li className="flex items-start gap-2.5">
-                      <MapPin className="h-4.5 w-4.5 text-blue-400 shrink-0 mt-0.5" />
-                      <span className="leading-snug">D-15, Shakarpur Main market Metro pilar no. 49, Laxmi Nagar, Delhi, 110092</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <Phone className="h-4.5 w-4.5 text-blue-400 shrink-0" />
-                      <a href="tel:+919015424048" className="hover:text-blue-400 transition-colors font-semibold">+91 90154 24048</a>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <Mail className="h-4.5 w-4.5 text-blue-400 shrink-0" />
-                      <a href="mailto:info@rajsirdelhi.com" className="hover:text-blue-400 transition-colors">info@rajsirdelhi.com</a>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Useful Info */}
-                <div className="space-y-4">
-                  <h3 className="font-sans font-bold text-white tracking-widest text-xs uppercase">
-                    {showSeoColumn ? 'Resources' : 'Useful Info'}
-                  </h3>
-                  <ul className="space-y-2.5 text-sm text-slate-300">
-                    <li>
-                      <a href="#" className="hover:text-blue-400 transition-colors">English Learning Tips</a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-blue-400 transition-colors">Delhi Learning Centers</a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-blue-400 transition-colors">Interview Preparation</a>
-                    </li>
-                    <li>
-                      <Link to="/reviews" className="hover:text-blue-400 transition-colors font-medium">Verified Google Reviews</Link>
+                      <Link to="/about" className="hover:text-blue-400 transition-colors">About Us </Link>
                     </li>
                   </ul>
                 </div>
@@ -157,16 +117,11 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
 
           {/* Bottom Bar */}
           <div id="footer-bottom-bar" className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div className="flex flex-wrap justify-center sm:justify-start gap-6 text-xs text-slate-400">
-              <a href="#" className="hover:text-white transition-colors">Contact Us</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-              <a href="#" className="hover:text-white transition-colors">Refund Policy</a>
-            </div>
+            <div className="hidden"></div>
 
-            <p className="text-xs text-slate-400 text-center sm:text-right leading-relaxed">
-              © {new Date().getFullYear()} Raj Sir Delhi Spoken English. All rights reserved.
-              <span className="block sm:inline sm:ml-2">
+            <p className="text-xs text-slate-400 text-center sm:text-right leading-relaxed w-full sm:text-left flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+              <span>© {new Date().getFullYear()} Raj Sir Delhi Spoken English. All rights reserved.</span>
+              <span>
                 Developed by{' '}
                 <a
                   href="https://www.divyanshwebservices.in/"
