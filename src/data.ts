@@ -373,6 +373,41 @@ export const galleryItems: GalleryItem[] = [
     title: 'Advocate Mayank Dwivedi',
     image: 'https://i.ibb.co/KxsntHFW/IMG-20260717-WA0006.jpg',
     description: 'Advocate - Refined court litigation persuasion and high-pressure cross-examination oratory.',
+  },
+  {
+    id: 'g-new-1',
+    category: 'Classrooms',
+    title: 'Active Classroom Discussion Session',
+    image: 'https://i.ibb.co/39hNxxdp/Screenshot-2026-07-19-130434.png',
+    description: "Students engaging in collaborative classroom exercises led by Raj Sir's native formula method.",
+  },
+  {
+    id: 'g-new-2',
+    category: 'Events',
+    title: 'Interactive Language Seminar',
+    image: 'https://i.ibb.co/0VjMm4pp/Screenshot-2026-07-19-130542.png',
+    description: 'Interactive workshop focusing on vocabulary formulation, sentence structure, and accent neutralization.',
+  },
+  {
+    id: 'g-new-3',
+    category: 'Events',
+    title: 'Group Debate Presentation Drill',
+    image: 'https://i.ibb.co/8LJtJ3D5/Screenshot-2026-07-19-130623.png',
+    description: 'Classroom debate session to help students build confidence and express their views fluently.',
+  },
+  {
+    id: 'g-new-4',
+    category: 'Students',
+    title: 'Professional Personality Drills',
+    image: 'https://i.ibb.co/VYhsqdm5/Screenshot-2026-07-19-131240.png',
+    description: 'Personalized presentation coaching to develop professional workplace fluency and charisma.',
+  },
+  {
+    id: 'g-new-5',
+    category: 'Students',
+    title: 'Corporate Interview Preparation',
+    image: 'https://i.ibb.co/YBzw5Ctv/Screenshot-2026-07-19-131317.png',
+    description: 'High-impact mock interviews and professional etiquette training for international career placements.',
   }
 ];
 
