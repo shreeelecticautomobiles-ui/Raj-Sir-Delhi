@@ -41,6 +41,7 @@ interface CaseStudyType {
   skills: string[];
   methodology: string[];
   quote: string;
+  imageUrl?: string;
 }
 
 const CASE_STUDIES_DATA: CaseStudyType[] = [
@@ -95,6 +96,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'SEENU CHAUDHARI',
     profession: 'Accountant at Ministry',
     story: "Seenu Chaudhari wanted to improve his communication skills for professional growth. Through continuous speaking practice and confidence building exercises, he became more confident while communicating in professional environments, removing all hesitation when coordinating with high-level department officials.",
+    imageUrl: 'https://i.ibb.co/0VWZKTvk/IMG-20260717-WA0027.jpg',
     challenges: [
       'Struggled during high-level ministry briefings',
       'Anxiety when speaking in front of senior officials',
@@ -137,6 +139,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'BINNU SINGH',
     profession: 'Chartered Accountant',
     story: "Binnu Singh transformed his professional communication skills and gained greater confidence while presenting ideas and communicating effectively in his profession. He broke the barrier of technical jargon and learned how to pitch audits dynamically to premium client delegations.",
+    imageUrl: 'https://i.ibb.co/tw40RqS8/IMG-20260717-WA0026.jpg',
     challenges: [
       'Stage fright during corporate client meetings',
       'Translating complex audit data into clear English speech',
@@ -177,6 +180,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'SANDEEP SINGH',
     profession: 'Indian Air Force Professional',
     story: "Sandeep Singh developed stronger communication abilities and greater confidence through Raj Sir's practical language learning methodology. He mastered clear, concise, and direct vocal projection standard in defense operations.",
+    imageUrl: 'https://i.ibb.co/tw40RqS8/IMG-20260717-WA0026.jpg',
     challenges: [
       'Briefing high-ranking international military delegations',
       'Pronunciation-induced micro-pauses during rapid speeches',
@@ -217,6 +221,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'ANWAR',
     profession: 'Manager in Dubai',
     story: "Anwar improved his professional English communication skills and gained greater confidence while working in an international environment. He broke through local language accents to lead diverse international teams successfully.",
+    imageUrl: 'https://i.ibb.co/tw40RqS8/IMG-20260717-WA0026.jpg',
     challenges: [
       'Accented pronunciation causing conversation blocks',
       'Nervousness in leading cross-functional multi-cultural teams',
@@ -256,6 +261,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'RANJIT SINGH',
     profession: 'IIT Professor',
     story: "Ranjit Singh strengthened his communication and presentation skills through practical language training and confidence building exercises, ensuring his world-class research matches world-class verbal delivery.",
+    imageUrl: 'https://i.ibb.co/ds3bbZmL/IMG-20260717-WA0022.jpg',
     challenges: [
       'Monotonous speaking style during extensive research briefs',
       'Nervousness during international symposia Q&As',
@@ -295,6 +301,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'RANVEER SINGH',
     profession: 'Manager at Private Bank',
     story: "Ranveer Singh transformed his professional communication skills and became more confident while interacting with clients and colleagues, driving direct commercial growth and building excellent customer trust.",
+    imageUrl: 'https://i.ibb.co/fG4cJPz3/IMG-20260717-WA0023.jpg',
     challenges: [
       'Anxiety in pitching wealth portfolios to HNIs (High Net Worth Individuals)',
       'Hesitation during national banking audits and reviews',
@@ -334,6 +341,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'PREETI SINGH',
     profession: 'Manager in MNC',
     story: "Preeti Singh developed stronger English communication skills and improved her confidence in professional environments. She overcame self-imposed limitations to voice strategic proposals clearly to global executives.",
+    imageUrl: 'https://i.ibb.co/VWBCdDdB/IMG-20260717-WA0020.jpg',
     challenges: [
       'Holding back strategic comments during agile standups',
       'Fear of grammatical judgment by senior offshore managers',
@@ -373,6 +381,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'MANOJ DUBEDI',
     profession: 'SDM (Sub-Divisional Magistrate)',
     story: "Manoj Dubedi strengthened his communication abilities through Raj Sir's confidence building methodology and practical speaking exercises, establishing administrative command when addressing critical public situations.",
+    imageUrl: 'https://i.ibb.co/C39V90Fs/IMG-20260717-WA0021.jpg',
     challenges: [
       'Stage anxiety when addressing large-scale public assemblies',
       'Micro-hesitation when conducting high-stakes press briefings',
@@ -412,6 +421,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'SUNIL SAKSENA',
     profession: 'Officer at Mantralay',
     story: "Sunil Saksena transformed his communication skills and developed greater professional confidence, presenting departmental files smoothly to top bureaucrats and senior policy panels.",
+    imageUrl: 'https://i.ibb.co/TBYS991H/IMG-20260717-WA0019.jpg',
     challenges: [
       'Nervousness when presenting reports to senior ministerial secretaries',
       'Difficulty maintaining formal grammar under strict administrative panels',
@@ -451,6 +461,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'DEVENDRA SINGH',
     profession: 'Clerk at High Court',
     story: "Devendra Singh significantly improved his professional communication and confidence through continuous speaking practice, coordinating flawlessly within the fast-paced legal environment of the high court.",
+    imageUrl: 'https://i.ibb.co/Q7wHJSp7/IMG-20260717-WA0016.jpg',
     challenges: [
       'Hesitation when interacting with senior legal practitioners and judges',
       'Difficulty formulating immediate legal coordination terminology',
@@ -490,6 +501,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'AARTI SINGH',
     profession: 'HR Professional at Infosys',
     story: "Aarti Singh developed excellent communication abilities that helped her perform confidently in professional environments, commanding attention during national recruitments and global corporate town halls.",
+    imageUrl: 'https://i.ibb.co/Gfwr5Dck/IMG-20260717-WA0015.jpg',
     challenges: [
       'Anxiety when moderating mass global corporate town halls',
       'Hesitation in driving executive alignment during high-level HR reviews',
@@ -529,6 +541,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'MANGLAM SINGH',
     profession: 'Professor',
     story: "Manglam Singh enhanced his communication and presentation skills through Raj Sir's practical language methodology, delivering lectures that keep modern students fully engaged and inspired.",
+    imageUrl: 'https://i.ibb.co/bgkLNG2q/IMG-20260717-WA0014.jpg',
     challenges: [
       'Difficulty keeping students fully engaged in massive lecture halls',
       'Monotonous presentation of dry academic curriculum data',
@@ -568,6 +581,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'WASIM',
     profession: 'IIT Manager',
     story: "Wasim developed greater confidence and improved professional communication abilities, handling coordinates with high-end sponsor delegations and managing major campus operations seamlessly.",
+    imageUrl: 'https://i.ibb.co/7t8wKNHD/IMG-20260717-WA0013.jpg',
     challenges: [
       'Speech blocks during operational proposals to IIT directors',
       'Nervousness when negotiating sponsorships with corporate brands',
@@ -607,6 +621,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'ADVOCATE MAYANK DWIVEDI',
     profession: 'Advocate',
     story: "Mayank Dwivedi strengthened his public speaking and professional communication skills through practical language training, arguing complex matters with outstanding judicial authority and deliberate courtroom presence.",
+    imageUrl: 'https://i.ibb.co/KxsntHFW/IMG-20260717-WA0006.jpg',
     challenges: [
       'Micro-hesitation when presenting arguments under intense judicial questioning',
       'Speaking too fast during stressful litigation moments',
@@ -724,24 +739,34 @@ export default function Reviews() {
                       isEven ? 'lg:order-1' : 'lg:order-2'
                     }`}>
                       
-                      {/* Premium Blue Image Placeholder */}
-                      <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-gradient-to-tr from-[#171C59] via-[#252B7B] to-[#4F46E5]/40 border border-white/5 shadow-inner flex flex-col items-center justify-center p-6 group">
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(129,140,248,0.15),transparent)]"></div>
-                        
-                        {/* Glow effect behind initials */}
-                        <div className="absolute h-28 w-28 rounded-full bg-[#818CF8]/25 blur-2xl animate-pulse"></div>
-                        
-                        {/* Custom initials display */}
-                        <div className="relative z-10 h-24 w-24 rounded-full flex items-center justify-center text-3xl font-black shadow-2xl bg-[#171C59] border-2 border-[#818CF8]/40 text-white">
-                          {initials}
+                      {/* Student Image or Premium Blue Image Placeholder */}
+                      {study.imageUrl ? (
+                        <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.3)] group-hover:border-[#818CF8]/40 transition-all duration-500">
+                          <img 
+                            src={study.imageUrl} 
+                            alt={study.name} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#171C59]/40 via-transparent to-transparent opacity-80 pointer-events-none" />
                         </div>
-                        
-                        <span className="relative z-10 text-[9px] text-[#818CF8] font-black tracking-widest mt-4 uppercase bg-[#171C59]/80 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md shadow-md">
-                          Client Photo Placeholder
-                        </span>
-                        
-                        {/* CLIENT: replace this entire container with your student image <img src="yogendra.jpg" className="w-full h-full object-cover rounded-[24px]" /> only if they've given permission to be featured */}
-                      </div>
+                      ) : (
+                        <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-gradient-to-tr from-[#171C59] via-[#252B7B] to-[#4F46E5]/40 border border-white/5 shadow-inner flex flex-col items-center justify-center p-6 group">
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(129,140,248,0.15),transparent)]"></div>
+                          
+                          {/* Glow effect behind initials */}
+                          <div className="absolute h-28 w-28 rounded-full bg-[#818CF8]/25 blur-2xl animate-pulse"></div>
+                          
+                          {/* Custom initials display */}
+                          <div className="relative z-10 h-24 w-24 rounded-full flex items-center justify-center text-3xl font-black shadow-2xl bg-[#171C59] border-2 border-[#818CF8]/40 text-white">
+                            {initials}
+                          </div>
+                          
+                          <span className="relative z-10 text-[9px] text-[#818CF8] font-black tracking-widest mt-4 uppercase bg-[#171C59]/80 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md shadow-md">
+                            Client Photo Placeholder
+                          </span>
+                        </div>
+                      )}
 
                       {/* Info & Achievements details */}
                       <div className="space-y-4">
