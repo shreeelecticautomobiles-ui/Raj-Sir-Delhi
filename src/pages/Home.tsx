@@ -40,33 +40,33 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const heroSlides = [
   {
-    image: 'https://i.ibb.co/GfJ32QCc/IMG-20260717-WA0010-1.jpg',
+    image: '[url=https://ibb.co/JRWwMh87][img]https://i.ibb.co/nsqN5W4c/Screenshot-2026-07-19-131317.png[/img][/url]',
     title: 'Raj Sir Teaching Students',
     tag: 'TRANSFORMATION',
     description: 'Our proprietary Hindi-to-English translation method lets you speak naturally without memorizing rules.'
   },
   {
-    image: 'https://i.ibb.co/HLdbh1vB/IMG-20260717-WA0008.jpg',
+    image: '[url=https://ibb.co/BKQ33YzS][img]https://i.ibb.co/n8YmmKg5/IMG-20260718-WA0030.jpg[/img][/url]',
     title: 'Interactive Group Drills',
     tag: 'CAREER SUCCESS',
     description: 'Dynamic team debates and sentence formulation challenges that banish hesitation forever.'
   },
   {
-    image: 'https://i.ibb.co/tMKkzhqK/IMG-20260717-WA0034.jpg',
+    image: '[url=https://ibb.co/Kz78VGSk][img]https://i.ibb.co/tPc1YhFt/Screenshot-2026-07-19-131240.png[/img][/url]',
     title: 'Public Speaking Practice',
     tag: 'CONFIDENCE',
     description: 'Daily podium presentation drills designed to build stage charisma and magnetic body language.'
   },
   {
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop&q=80',
+    image: '[url=https://ibb.co/Kz78VGSk][img]https://i.ibb.co/tPc1YhFt/Screenshot-2026-07-19-131240.png[/img][/url]',
     title: 'German Language Classes',
-    tag: 'CEFR A1-B2',
+    tag: '',
     description: 'Comprehensive preparation for official Goethe Institute exams under certified instruction.'
   },
   {
-    image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&auto=format&fit=crop&q=80',
+    image: '',
     title: 'Chinese Language Course',
-    tag: 'CORPORATE HSK',
+    tag: '[url=https://ibb.co/YB6vX6wP][img]https://i.ibb.co/N2XwrXbt/Screenshot-2026-07-19-130542.png[/img][/url]',
     description: 'Syllabus-focused Chinese language mastery, tailored for global career advancement.'
   },
   {
@@ -77,7 +77,7 @@ const heroSlides = [
   },
   {
     image: 'https://i.ibb.co/knK8G2j/IMG-20260717-WA0051.jpg',
-    title: 'MNC Placement Preparation',
+    title: 'Preparation',
     tag: 'PREMIUM EXPERIENCE',
     description: 'High-impact mock interviews, resume consulting, and professional etiquette coaching.'
   }
