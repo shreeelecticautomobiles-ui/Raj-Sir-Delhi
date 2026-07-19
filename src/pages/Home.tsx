@@ -51,7 +51,7 @@ export default function Home() {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % 4);
-    }, 1500); // 6 seconds total / 4 steps = 1500ms
+    }, 750); // 3 seconds total / 4 steps = 750ms
     return () => clearInterval(interval);
   }, []);
 
@@ -668,11 +668,11 @@ export default function Home() {
           }
           .animated-glow-line {
             stroke-dasharray: 25 75;
-            animation: lineGlowTravel 6s linear infinite;
+            animation: lineGlowTravel 3s linear infinite;
           }
           .animated-glow-line-core {
             stroke-dasharray: 10 90;
-            animation: lineGlowTravel 6s linear infinite;
+            animation: lineGlowTravel 3s linear infinite;
           }
           .glow-filter {
             filter: drop-shadow(0px 0px 12px rgba(37, 99, 235, 0.75)) drop-shadow(0px 0px 4px rgba(37, 99, 235, 0.4));
