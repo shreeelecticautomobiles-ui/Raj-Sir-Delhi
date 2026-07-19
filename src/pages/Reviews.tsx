@@ -46,12 +46,13 @@ interface CaseStudyType {
 
 const CASE_STUDIES_DATA: CaseStudyType[] = [
   {
-    id: 'yogendra-singh',
+    id: 'yogendra-soni',
     number: '01',
     badgeTitle: 'FROM HESITATION TO PROFESSIONAL SUCCESS',
-    name: 'YOGENDRA SINGH',
+    name: 'YOGENDRA SONI',
     profession: 'Five Star Hotel Professional',
-    story: "Before joining Raj Sir's classes, Yogendra Singh struggled while communicating confidently in professional environments. Through Raj Sir's practical speaking methodology and confidence building sessions, he significantly improved his fluency, communication skills and professional confidence. Today, he communicates confidently with people and performs exceptionally well in his profession.",
+    story: "Before joining Raj Sir's classes, Yogendra Soni struggled while communicating confidently in professional environments. Through Raj Sir's practical speaking methodology and confidence building sessions, he significantly improved his fluency, communication skills and professional confidence. Today, he communicates confidently with people and performs exceptionally well in his profession.",
+    imageUrl: 'https://i.ibb.co/60h4ZnkV/IMG-20260718-WA0028.jpg',
     challenges: [
       'Hesitation while speaking English',
       'Professional communication anxiety',
@@ -180,7 +181,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'SANDEEP SINGH',
     profession: 'Indian Air Force Professional',
     story: "Sandeep Singh developed stronger communication abilities and greater confidence through Raj Sir's practical language learning methodology. He mastered clear, concise, and direct vocal projection standard in defense operations.",
-    imageUrl: 'https://i.ibb.co/tw40RqS8/IMG-20260717-WA0026.jpg',
+    imageUrl: 'https://i.ibb.co/LX3NdbYH/IMG-20260717-WA0024.jpg',
     challenges: [
       'Briefing high-ranking international military delegations',
       'Pronunciation-induced micro-pauses during rapid speeches',
@@ -221,7 +222,7 @@ const CASE_STUDIES_DATA: CaseStudyType[] = [
     name: 'ANWAR',
     profession: 'Manager in Dubai',
     story: "Anwar improved his professional English communication skills and gained greater confidence while working in an international environment. He broke through local language accents to lead diverse international teams successfully.",
-    imageUrl: 'https://i.ibb.co/tw40RqS8/IMG-20260717-WA0026.jpg',
+    imageUrl: 'https://i.ibb.co/jkN7TvTq/IMG-20260717-WA0025.jpg',
     challenges: [
       'Accented pronunciation causing conversation blocks',
       'Nervousness in leading cross-functional multi-cultural teams',
