@@ -16,6 +16,7 @@ import {
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { testimonials } from '../data';
+import SEO from '../components/SEO';
 
 const getInitials = (name: string) => {
   return name
@@ -50,8 +51,33 @@ export default function About() {
     routerNavigate('/contact');
   };
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.rajsirdelhi.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.rajsirdelhi.com/about"
+      }
+    ]
+  };
+
   return (
     <div id="about-page-container">
+      <SEO
+        title="About Raj Sir | Delhi's Premier Spoken English & Language Coach"
+        description="Learn about Raj Sir, who has over 25+ years of language teaching expertise in Delhi. Discover our famous Hindi-to-English native translation coaching methodology."
+        keywords="Raj Sir Delhi, Spoken English Coach Delhi, English speaking classes near Laxmi Nagar, Hindi to English translation teacher, foreign language institute Delhi"
+        schemaMarkup={aboutSchema}
+      />
       {/* 1. ABOUT HERO */}
       <section id="about-hero" className="relative bg-bg-main pt-16 pb-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8 grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">

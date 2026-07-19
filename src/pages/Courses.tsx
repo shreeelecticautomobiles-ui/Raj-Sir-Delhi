@@ -17,8 +17,13 @@ import {
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { faqs } from '../data';
+import SEO from '../components/SEO';
 
-export default function Courses() {
+interface CoursesProps {
+  courseType?: 'spoken-english' | 'german' | 'chinese' | 'public-speaking' | 'interview-preparation';
+}
+
+export default function Courses({ courseType }: CoursesProps = {}) {
   const navigate = useNavigate();
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
 
@@ -30,8 +35,102 @@ export default function Courses() {
     navigate('/contact');
   };
 
+  let seoTitle = "Spoken English, German & Chinese Courses in Delhi | Raj Sir";
+  let seoDesc = "Explore our tailored course curriculums. From Beginner to Advanced Spoken English, Goethe Institute exam preparation for German, and corporate Chinese HSK classes.";
+  let seoKeywords = "Spoken English Classes Delhi, Spoken English Classes in Laxmi Nagar, English Speaking Classes Delhi, German Language Classes Delhi, Chinese Language Classes Delhi";
+  
+  if (courseType === 'spoken-english') {
+    seoTitle = "Best Spoken English Classes in Delhi | Laxmi Nagar English Course";
+    seoDesc = "Join Raj Sir's flagship Spoken English Classes in Delhi (Laxmi Nagar). Hindi-to-English translation method, daily debate circles & public speaking practice.";
+    seoKeywords = "Spoken English Classes Delhi, Spoken English Classes in Laxmi Nagar, English Speaking Classes Delhi, Best English Speaking Classes Delhi, English Speaking Course Delhi, English Classes Near Me, Spoken English Classes for Hindi Medium Students";
+  } else if (courseType === 'german') {
+    seoTitle = "German Language Course in Delhi | Learn German A1-B2 with Raj Sir";
+    seoDesc = "Master German with Raj Sir's comprehensive German Language Classes in Laxmi Nagar, Delhi. Full Goethe Exam preparation, weekend batches, and listening practice.";
+    seoKeywords = "German Language Classes Delhi, German Language Course Delhi, German Classes Near Me, German A1 Classes Delhi, German A2 Classes Delhi, Foreign Language Classes Delhi";
+  } else if (courseType === 'chinese') {
+    seoTitle = "Chinese Language Classes in Delhi | HSK Course with Raj Sir";
+    seoDesc = "Learn Chinese (HSK 1-4) with Raj Sir's Chinese Language Classes in Delhi. Professional business conversation drills and direct placement assistance in MNCs.";
+    seoKeywords = "Chinese Language Classes Delhi, Chinese Language Course Delhi, Chinese Classes Near Me, Chinese HSK Classes Delhi, Foreign Language Classes Delhi, Language Training Institute Delhi";
+  } else if (courseType === 'public-speaking') {
+    seoTitle = "Best Public Speaking Classes in Delhi | Overcome Stage Fear";
+    seoDesc = "Master public speaking and build extreme stage confidence with Raj Sir in Delhi. Podium speech simulations, body language training, and voice modulation drills.";
+    seoKeywords = "Public Speaking Classes Delhi, Best English Speaking Classes Delhi, Personality Development Delhi, English Classes Near Me, Best Spoken English Institute Delhi";
+  } else if (courseType === 'interview-preparation') {
+    seoTitle = "Interview Preparation Classes in Delhi | Resume & Mock Interviews";
+    seoDesc = "Secure your dream job. Join Raj Sir's Interview Preparation Course in Delhi. Mock interviews, official resume writing, group discussions, and body language coaching.";
+    seoKeywords = "Interview Preparation Classes Delhi, Corporate English Training Delhi, Best Spoken English Institute Delhi, Personality Development Delhi, English Classes Near Me";
+  }
+
+  const breadcrumbList = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.rajsirdelhi.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Courses",
+        "item": "https://www.rajsirdelhi.com/courses"
+      },
+      ...(courseType ? [{
+        "@type": "ListItem",
+        "position": 3,
+        "name": courseType.replace('-', ' ').toUpperCase(),
+        "item": `https://www.rajsirdelhi.com/${courseType}-course`
+      }] : [])
+    ]
+  };
+
+  const courseSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Master Spoken English - Beginner to Advanced Levels",
+      "description": "Raj Sir's flagship English speaking program with customized tiers (Foundation, Fluency, and Executive Mastery). Focuses on confidence, grammar, debate, and neutral accent.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Raj Sir Delhi Spoken English Class",
+        "sameAs": "https://www.rajsirdelhi.com"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "German Language Course (Goethe CEFR levels A1-B2)",
+      "description": "Comprehensive German language classes featuring listening, reading, writing, and intensive preparation for official Goethe Institute exams.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Raj Sir Delhi Spoken English Class",
+        "sameAs": "https://www.rajsirdelhi.com"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Chinese Language Course (Official HSK 1-4 Levels)",
+      "description": "Professional HSK syllabus Chinese classes focused on character writing, Pinyin syntax, and corporate multinational placement interviews.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Raj Sir Delhi Spoken English Class",
+        "sameAs": "https://www.rajsirdelhi.com"
+      }
+    },
+    breadcrumbList
+  ];
+
   return (
     <div id="courses-page-container">
+      <SEO
+        title={seoTitle}
+        description={seoDesc}
+        keywords={seoKeywords}
+        schemaMarkup={courseSchemas}
+      />
       {/* 1. HERO HEADER */}
       <section id="courses-hero" className="bg-gradient-to-b from-blue-50/50 via-white to-bg-main py-16 md:py-24 text-center">
         <div className="mx-auto max-w-4xl px-6 md:px-8 space-y-6">
@@ -294,6 +393,7 @@ export default function Courses() {
                 <img
                   src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&auto=format&fit=crop&q=80"
                   alt="Germany landmark representing Goethe Exam preparation"
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-md">
@@ -332,6 +432,7 @@ export default function Courses() {
                 <img
                   src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&auto=format&fit=crop&q=80"
                   alt="Chinese architecture representing HSK levels"
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-md">

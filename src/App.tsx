@@ -11,6 +11,7 @@ import Courses from './pages/Courses';
 import Reviews from './pages/Reviews';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import FAQPage from './pages/FAQPage';
 
 // Scroll to Top component to ensure clean transitions on page changes
 function ScrollToTop() {
@@ -62,10 +63,23 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          
+          {/* Course-specific SEO Landing Pages */}
           <Route path="/courses" element={<Courses />} />
+          <Route path="/spoken-english-course" element={<Courses courseType="spoken-english" />} />
+          <Route path="/german-language-course" element={<Courses courseType="german" />} />
+          <Route path="/chinese-language-course" element={<Courses courseType="chinese" />} />
+          <Route path="/public-speaking-course" element={<Courses courseType="public-speaking" />} />
+          <Route path="/interview-preparation-course" element={<Courses courseType="interview-preparation" />} />
+          
+          {/* Transformations & Reviews Pages */}
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/career-transformations" element={<Reviews />} />
+          
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQPage />} />
+          
           {/* Fallback redirect */}
           <Route path="*" element={<Home />} />
         </Routes>

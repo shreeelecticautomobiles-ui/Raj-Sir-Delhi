@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
 
 const getInitials = (name: string) => {
   return name
@@ -664,8 +665,53 @@ export default function Reviews() {
     navigate('/contact');
   };
 
+  const reviewsSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Raj Sir Delhi Language Classes",
+      "image": "https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg",
+      "description": "High-impact spoken English, German, and Chinese language coaching with 1081+ Google Reviews with 5.0 Rating.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Raj Sir Delhi"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5.0",
+        "worstRating": "1.0",
+        "reviewCount": "1081"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.rajsirdelhi.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Transformations & Reviews",
+          "item": "https://www.rajsirdelhi.com/reviews"
+        }
+      ]
+    }
+  ];
+
   return (
     <div id="reviews-page-wrapper" className="bg-[#F8FAFC] min-h-screen text-slate-900 relative overflow-hidden font-sans selection:bg-[#4F46E5]/20 selection:text-slate-900">
+      <SEO
+        title="1081+ Google Reviews & Career Transformations | Raj Sir Delhi"
+        description="Read verified feedback from our corporate, judicial, government, and student alumni. Learn how Raj Sir's training achieved 1000+ career breakthroughs with a perfect 5.0 Google rating."
+        keywords="Raj Sir Delhi reviews, English speaking classes Delhi reviews, Best Spoken English Laxmi Nagar testimonials, Raj Sir Delhi student success, German Language Laxmi Nagar rating"
+        schemaMarkup={reviewsSchema}
+      />
       
       {/* Background Grid Lines suitable for light mode */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>

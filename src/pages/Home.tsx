@@ -35,6 +35,53 @@ import Card from '../components/Card';
 import CountUp from '../components/CountUp';
 import ScrollReveal from '../components/ScrollReveal';
 import { courses, testimonials, videos } from '../data';
+import SEO from '../components/SEO';
+import { motion, AnimatePresence } from 'motion/react';
+
+const heroSlides = [
+  {
+    image: 'https://i.ibb.co/GfJ32QCc/IMG-20260717-WA0010-1.jpg',
+    title: 'Raj Sir Teaching Students',
+    tag: 'TRANSFORMATION',
+    description: 'Our proprietary Hindi-to-English translation method lets you speak naturally without memorizing rules.'
+  },
+  {
+    image: 'https://i.ibb.co/HLdbh1vB/IMG-20260717-WA0008.jpg',
+    title: 'Interactive Group Drills',
+    tag: 'CAREER SUCCESS',
+    description: 'Dynamic team debates and sentence formulation challenges that banish hesitation forever.'
+  },
+  {
+    image: 'https://i.ibb.co/tMKkzhqK/IMG-20260717-WA0034.jpg',
+    title: 'Public Speaking Practice',
+    tag: 'CONFIDENCE',
+    description: 'Daily podium presentation drills designed to build stage charisma and magnetic body language.'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop&q=80',
+    title: 'German Language Classes',
+    tag: 'CEFR A1-B2',
+    description: 'Comprehensive preparation for official Goethe Institute exams under certified instruction.'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&auto=format&fit=crop&q=80',
+    title: 'Chinese Language Course',
+    tag: 'CORPORATE HSK',
+    description: 'Syllabus-focused Chinese language mastery, tailored for global career advancement.'
+  },
+  {
+    image: 'https://i.ibb.co/Hf9MPFzq/IMG-20260718-WA0043.jpg',
+    title: 'Student Success Moments',
+    tag: 'TRUST',
+    description: 'A perfect 5.0 Google rating earned from 1000+ personal student transformations.'
+  },
+  {
+    image: 'https://i.ibb.co/knK8G2j/IMG-20260717-WA0051.jpg',
+    title: 'MNC Placement Preparation',
+    tag: 'PREMIUM EXPERIENCE',
+    description: 'High-impact mock interviews, resume consulting, and professional etiquette coaching.'
+  }
+];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -47,6 +94,24 @@ export default function Home() {
 
   // Premium Transformation Journey active step state
   const [activeStep, setActiveStep] = useState(0);
+
+  // Active slide index for the slow image showcase
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Scroll handler to go to testimonials section
+  const handleScrollToTestimonials = () => {
+    const section = document.getElementById('testimonials-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  React.useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -182,149 +247,380 @@ export default function Home() {
     { id: 'wsj-9', label: 'Personality Development', icon: <UserCheck className="h-6 w-6" /> }
   ];
 
+  const homeSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Raj Sir Delhi Spoken English Class",
+      "image": "https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg",
+      "telephone": "+91 90154 24048",
+      "url": "https://www.rajsirdelhi.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "D-15, Shakarpur Main Market, Laxmi Nagar",
+        "addressLocality": "Delhi",
+        "postalCode": "110092",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "28.6333782",
+        "longitude": "77.282903"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "20:30"
+      },
+      "sameAs": [
+        "https://www.youtube.com/c/rajsirdelhi",
+        "https://www.instagram.com/rajsirdelhi/?hl=en"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Raj Sir Delhi Spoken English Class",
+      "url": "https://www.rajsirdelhi.com",
+      "logo": "https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "D-15, Shakarpur Main Market, Laxmi Nagar",
+        "addressLocality": "Delhi",
+        "postalCode": "110092",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 90154 24048"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Raj Sir Delhi Spoken English Class",
+      "url": "https://www.rajsirdelhi.com"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Spoken English, German & Chinese Language Training",
+      "image": "https://i.ibb.co/wr0kKg1x/IMG-20260717-WA0011-1.jpg",
+      "description": "Delhi's leading foreign language institute providing professional coaching in Spoken English, Goethe German, and corporate Chinese HSK levels with Raj Sir.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Raj Sir Delhi"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5.0",
+        "worstRating": "1.0",
+        "reviewCount": "1081"
+      }
+    },
+    ...videos.map((vid) => ({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": vid.title,
+      "description": `Free Spoken English and Foreign Language learning lesson on YouTube with Raj Sir: ${vid.title}`,
+      "thumbnailUrl": vid.thumbnail,
+      "uploadDate": "2026-07-01",
+      "embedUrl": `https://www.youtube.com/embed/${vid.youtubeId}`
+    }))
+  ];
+
   return (
     <div id="home-page-container" className="relative">
+      <SEO
+        title="Raj Sir Delhi Spoken English Class | Laxmi Nagar English Academy"
+        description="Learn Spoken English, German (A1-B2) and Chinese (HSK) with Raj Sir in Laxmi Nagar, Delhi. 5.0 Rated, 1,081+ Google Reviews. Online & offline batches."
+        keywords="Spoken English Classes Delhi, Spoken English Classes in Laxmi Nagar, English Speaking Classes Delhi, Best English Speaking Classes Delhi, English Speaking Course Delhi, German Language Classes Delhi, German Language Course Delhi, Chinese Language Classes Delhi, Chinese Language Course Delhi, English Classes Near Me, German Classes Near Me, Chinese Classes Near Me, Public Speaking Classes Delhi, Corporate English Training Delhi, Interview Preparation Classes Delhi, Online Spoken English Classes Delhi, Spoken English Classes for Hindi Medium Students"
+        schemaMarkup={homeSchemas}
+      />
       {/* 1. HERO SECTION */}
-      <section id="hero-section" className="relative overflow-hidden bg-bg-main pt-12 pb-20 md:pt-16 md:pb-28">
-        <div className="absolute inset-0 bg-radial-gradient from-blue-50/40 via-transparent to-transparent opacity-70"></div>
+      <section id="hero-section" className="relative overflow-hidden bg-bg-main pt-16 pb-24 md:pt-20 md:pb-32">
+        {/* Subtle background radial glow & grids */}
+        <div className="absolute inset-0 bg-radial-gradient from-blue-50/50 via-transparent to-transparent opacity-90"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e503_1px,transparent_1px),linear-gradient(to_bottom,#4f46e503_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
         
-        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 relative grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
-          {/* Hero Left Info */}
-          <div id="hero-info" className="lg:col-span-7 space-y-6 text-left">
-            <span
-              id="hero-prestige-tag"
-              className="inline-flex items-center gap-2 rounded-full bg-[#252B7B]/10 border border-[#252B7B]/25 px-5 py-2 text-xs font-black uppercase tracking-widest text-[#171C59] shadow-sm backdrop-blur-md animate-fade-in"
-            >
-              <Sparkles className="h-4 w-4 animate-pulse text-[#4F46E5]" />
-              DELHI'S NO.1 ENGLISH & LANGUAGE ACADEMY
-            </span>
+        <ScrollReveal className="mx-auto max-w-7xl px-6 md:px-8 relative space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Hero Left Info */}
+            <div id="hero-info" className="lg:col-span-7 space-y-8 text-left">
+              <span
+                id="hero-prestige-tag"
+                className="inline-flex items-center gap-2 rounded-full bg-[#4F46E5]/10 border border-[#4F46E5]/20 px-5 py-2.5 text-xs font-black uppercase tracking-widest text-[#4F46E5] shadow-sm backdrop-blur-md animate-fade-in"
+              >
+                <Sparkles className="h-4 w-4 animate-pulse text-[#4F46E5]" />
+                DELHI'S PRESTIGE FOREIGN LANGUAGE INSTITUTE
+              </span>
 
-            <h1 id="hero-headline" className="font-sans text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-[#171C59]">
-              Speak English <br />
-              <span className="bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent">
-                Confidently
-              </span> <br className="hidden sm:inline" />
-              with Raj Sir
-            </h1>
-            
-            <p id="hero-subtext" className="text-text-secondary text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl">
-              {/* SOURCE: live Google Maps listing, update if this changes */}
-              Join Delhi's premier destination for English, German, and Chinese speaking fluency. Overcome hesitation with Raj Sir's native classroom method and interactive batches.
-            </p>
-            
-            {/* Call To Actions */}
-            <div id="hero-ctas" className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button
-                id="hero-book-demo-btn"
-                variant="primary"
-                onClick={handleBookDemo}
-                className="group font-bold"
+              {/* Staggered Apple-inspired animated heading */}
+              <h1 id="hero-headline" className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05] text-[#171C59] flex flex-col gap-2">
+                <motion.span
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  Speak English.
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="block bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent"
+                >
+                  Confidently.
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-[#1E293B]"
+                >
+                  Transform Your Career.
+                </motion.span>
+              </h1>
+              
+              <motion.p
+                id="hero-subtext"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 2.2 }}
+                className="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-medium"
               >
-                <span>Book Free Demo</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <a
-                id="hero-whatsapp-btn"
-                href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-6 py-3 font-bold rounded-lg text-sm tracking-wider uppercase text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 hover:shadow-lg transition-all active:scale-95 transform"
+                Overcome hesitation. Speak confidently. Transform your personality and career through Raj Sir's practical classroom methodology trusted by 1000+ successful students.
+              </motion.p>
+              
+              {/* Call To Actions */}
+              <motion.div
+                id="hero-ctas"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 2.4 }}
+                className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4"
               >
-                <MessageSquare className="h-4 w-4 text-emerald-600" />
-                <span>WhatsApp Now</span>
-              </a>
+                <Button
+                  id="hero-book-demo-btn"
+                  variant="primary"
+                  onClick={handleBookDemo}
+                  className="group font-bold px-8 py-4 text-base rounded-xl bg-[#252B7B] hover:bg-[#171C59] transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Book Free Demo</span>
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+                
+                <button
+                  id="hero-success-stories-btn"
+                  onClick={handleScrollToTestimonials}
+                  className="inline-flex items-center justify-center gap-2 border-2 border-[#4F46E5] px-8 py-4 font-bold rounded-xl text-base tracking-wide text-[#4F46E5] hover:bg-[#4F46E5]/5 hover:-translate-y-0.5 hover:shadow-lg transition-all active:scale-95 transform cursor-pointer"
+                >
+                  <Play className="h-4 w-4 text-[#4F46E5] fill-current" />
+                  <span>Watch Success Stories</span>
+                </button>
+
+                <a
+                  id="hero-whatsapp-btn"
+                  href="https://wa.me/919015424048?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20book%20a%20free%20demo%20class"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-emerald-600 px-8 py-4 font-bold rounded-xl text-base tracking-wide text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5 hover:shadow-lg transition-all active:scale-95 transform"
+                >
+                  <MessageSquare className="h-5 w-5 text-emerald-600" />
+                  <span>WhatsApp Now</span>
+                </a>
+              </motion.div>
             </div>
 
-            {/* Social Trust row (Desktop) */}
-            <div id="hero-trust-desktop" className="hidden lg:flex items-center gap-4 pt-6 border-t border-gray-100/80">
-              <div className="flex -space-x-3 overflow-hidden">
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 text-xs font-bold ring-2 ring-white border border-blue-200">
-                  RS
+            {/* Hero Right Image - Slow Apple-inspired Showcase */}
+            <div id="hero-image-pane" className="lg:col-span-5 relative flex flex-col justify-center items-center">
+              <div className="relative w-full max-w-lg">
+                {/* Backglow blur decorative circle */}
+                <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/15 blur-3xl"></div>
+                
+                {/* Showcase Slider Container */}
+                <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/60 shadow-[0_32px_64px_-16px_rgba(23,28,89,0.18)] bg-slate-900 group">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeSlide}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0 w-full h-full"
+                    >
+                      <img
+                        src={heroSlides[activeSlide].image}
+                        alt={heroSlides[activeSlide].title}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                      {/* Dark gradient overlay for extreme readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Premium Glassmorphism Floating Tag */}
+                  <div className="absolute top-6 left-6 z-10">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={activeSlide}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.5 }}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-black uppercase tracking-widest text-white shadow-sm"
+                      >
+                        <Sparkles className="h-3.5 w-3.5 text-blue-300 animate-pulse" />
+                        {heroSlides[activeSlide].tag}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Bottom details overlay (Glassmorphism card) */}
+                  <div className="absolute bottom-6 left-6 right-6 z-10">
+                    <div className="backdrop-blur-xl bg-black/45 border border-white/10 rounded-2xl p-5 text-left space-y-2 shadow-2xl">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeSlide}
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -15 }}
+                          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          <h4 className="font-sans font-black text-white text-base sm:text-lg leading-tight tracking-tight">
+                            {heroSlides[activeSlide].title}
+                          </h4>
+                          <p className="text-white/80 text-xs sm:text-sm leading-relaxed mt-1">
+                            {heroSlides[activeSlide].description}
+                          </p>
+                        </motion.div>
+                      </AnimatePresence>
+
+                      {/* Slide Selector Indicators & Counter */}
+                      <div className="flex items-center gap-2 pt-3 border-t border-white/10 mt-3 justify-between">
+                        <div className="flex gap-1.5">
+                          {heroSlides.map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => setActiveSlide(idx)}
+                              className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                                activeSlide === idx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/75'
+                              }`}
+                              title={`Switch to slide ${idx + 1}`}
+                            />
+                          ))}
+                        </div>
+                        <span className="font-mono text-[10px] font-bold text-white/60 uppercase tracking-widest">
+                          {String(activeSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold ring-2 ring-white border border-emerald-200">
-                  PV
-                </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold ring-2 ring-white border border-indigo-200">
-                  AM
-                </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white text-xs font-bold ring-2 ring-white">
-                  +1k
-                </div>
-              </div>
-              <div className="text-sm">
-                <div className="flex items-center text-accent-yellow-container font-semibold">
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  {/* SOURCE: live Google Maps listing, update if this changes */}
-                  <span className="ml-1.5 text-text-primary text-sm font-extrabold">5.0 ★</span>
-                </div>
-                {/* SOURCE: live Google Maps listing, update if this changes */}
-                <p className="text-xs text-text-secondary font-bold">1,081 Verified Google Reviews</p>
+
+                {/* Interactive Floating Badge (Masterclass Inspired) */}
+                <motion.div
+                  id="hero-floating-badge"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.5, type: "spring", stiffness: 100 }}
+                  className="absolute -bottom-6 -left-6 sm:left-auto sm:-right-6 bg-white/90 backdrop-blur-xl border border-blue-50/50 shadow-[0_20px_50px_rgba(23,28,89,0.15)] rounded-2xl p-5 flex items-center gap-4 max-w-[280px] group cursor-pointer z-20"
+                  onClick={handleScrollToTestimonials}
+                >
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-3.5 rounded-xl text-white shrink-0 shadow-lg shadow-blue-500/20 group-hover:rotate-6 transition-transform duration-300">
+                    <Award className="h-6 w-6" />
+                  </div>
+                  <div className="text-left space-y-0.5">
+                    <p className="text-[10px] uppercase tracking-widest font-black text-blue-600">Trust Milestone</p>
+                    <p className="text-lg font-black text-[#171C59] tracking-tight">1081+ Verified</p>
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex text-amber-500">
+                        <Star className="h-3 w-3 fill-current text-amber-500 animate-pulse" />
+                        <Star className="h-3 w-3 fill-current text-amber-500 animate-pulse" />
+                        <Star className="h-3 w-3 fill-current text-amber-500 animate-pulse" />
+                        <Star className="h-3 w-3 fill-current text-amber-500 animate-pulse" />
+                        <Star className="h-3 w-3 fill-current text-amber-500 animate-pulse" />
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-500">5.0 Rating</span>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
 
-          {/* Hero Right Image / Graphic representation */}
-          <div id="hero-image-pane" className="lg:col-span-5 relative flex flex-col justify-center items-center">
-            <div className="relative w-full max-w-md">
-              {/* Backglow blur decorative circle */}
-              <div className="absolute -top-12 -left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
-              
-              <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-slate-50 aspect-[4/3] relative">
-                <img
-                  src="https://i.ibb.co/6RG29rkW/Gemini-Generated-Image-qyynnnqyynnnqyyn.png"
-                  alt="Raj Sir Spoken English Learning"
-                  className="object-cover w-full h-full object-center hover:scale-105 transition-all duration-700"
-                  referrerPolicy="no-referrer"
-                />
+          {/* Premium Trust Signals Row */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-10 border-t border-slate-100">
+            {/* Signal 1 */}
+            <motion.div 
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="bg-white/75 backdrop-blur-md border border-slate-100/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-blue-200 transition-all text-center flex flex-col justify-center items-center group cursor-pointer"
+            >
+              <div className="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <UserCheck className="h-5 w-5" />
               </div>
+              <span className="font-sans text-xl font-black text-[#171C59]">1000+</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mt-1 leading-tight">Students Transformed</span>
+            </motion.div>
 
-              {/* Next batch starting card overlay */}
-              <div
-                id="hero-batch-badge"
-                className="absolute -bottom-6 -left-6 sm:left-auto sm:-right-6 bg-white border border-gray-100 shadow-xl rounded-2xl p-4 flex items-center gap-3 animate-bounce-slow"
-              >
-                <div className="bg-primary/10 p-3 rounded-xl text-primary shrink-0">
-                  <Calendar className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider font-bold text-gray-400">Next Batch Starts</p>
-                  <p className="text-sm font-bold text-text-primary">Monday, 10:00 AM</p>
-                </div>
+            {/* Signal 2 */}
+            <motion.div 
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="bg-white/75 backdrop-blur-md border border-slate-100/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-200 transition-all text-center flex flex-col justify-center items-center group cursor-pointer"
+            >
+              <div className="h-10 w-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Star className="h-5 w-5 fill-current" />
               </div>
-            </div>
+              <span className="font-sans text-xl font-black text-[#171C59]">1081+</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mt-1 leading-tight">Verified Reviews</span>
+            </motion.div>
 
-            {/* Social Trust row (Mobile) - Stacked BELOW image with proper 24px (mt-8 = 32px) margin */}
-            <div id="hero-trust-mobile" className="lg:hidden flex items-center gap-4 mt-12 pt-6 border-t border-gray-100/80 w-full max-w-md text-left">
-              <div className="flex -space-x-3 overflow-hidden">
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 text-xs font-bold ring-2 ring-white border border-blue-200">
-                  RS
-                </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold ring-2 ring-white border border-emerald-200">
-                  PV
-                </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold ring-2 ring-white border border-indigo-200">
-                  AM
-                </div>
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white text-xs font-bold ring-2 ring-white">
-                  +1k
-                </div>
+            {/* Signal 3 */}
+            <motion.div 
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="bg-white/75 backdrop-blur-md border border-slate-100/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-red-200 transition-all text-center flex flex-col justify-center items-center group cursor-pointer"
+            >
+              <div className="h-10 w-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Play className="h-5 w-5 fill-current" />
               </div>
-              <div className="text-sm">
-                <div className="flex items-center text-accent-yellow-container font-semibold">
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <Star className="h-4 w-4 fill-current text-accent-yellow" />
-                  <span className="ml-1.5 text-text-primary text-sm font-extrabold">5.0 ★</span>
-                </div>
-                <p className="text-xs text-text-secondary font-bold">1,081 Verified Google Reviews</p>
+              <span className="font-sans text-xl font-black text-[#171C59]">7K+</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mt-1 leading-tight">YouTube Subscribers</span>
+            </motion.div>
+
+            {/* Signal 4 */}
+            <motion.div 
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="bg-white/75 backdrop-blur-md border border-slate-100/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all text-center flex flex-col justify-center items-center group cursor-pointer"
+            >
+              <div className="h-10 w-10 rounded-xl bg-yellow-50 text-yellow-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Star className="h-5 w-5 fill-current" />
               </div>
-            </div>
+              <span className="font-sans text-xl font-black text-[#171C59]">5.0 Rating</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mt-1 leading-tight">Google Verified</span>
+            </motion.div>
+
+            {/* Signal 5 */}
+            <motion.div 
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="col-span-2 md:col-span-1 bg-white/75 backdrop-blur-md border border-slate-100/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all text-center flex flex-col justify-center items-center group cursor-pointer"
+            >
+              <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Laptop className="h-5 w-5" />
+              </div>
+              <span className="font-sans text-sm font-black text-[#171C59] uppercase tracking-tight">Online + Offline</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mt-1 leading-tight">Classes Available</span>
+            </motion.div>
           </div>
         </ScrollReveal>
       </section>

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -42,8 +43,33 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.rajsirdelhi.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact & Enroll",
+        "item": "https://www.rajsirdelhi.com/contact"
+      }
+    ]
+  };
+
   return (
     <div id="contact-page-container">
+      <SEO
+        title="Contact Raj Sir Delhi Spoken English Class | Book Free Demo"
+        description="Ready to speak English confidently? Contact Raj Sir's admission office in Shakarpur, Laxmi Nagar, Delhi. Call +91 90154 24048 to book a free demo session today."
+        keywords="Contact Raj Sir Delhi, English speaking classes Delhi number, Spoken English Laxmi Nagar contact address, Raj Sir demo class booking, learn German Laxmi Nagar office"
+        schemaMarkup={contactSchema}
+      />
       {/* 1. HERO SECTION */}
       <section id="contact-hero" className="bg-gradient-to-b from-blue-50/50 via-white to-bg-main py-16 text-center">
         <div className="mx-auto max-w-4xl px-6 md:px-8 space-y-4">
