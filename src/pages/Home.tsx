@@ -95,6 +95,15 @@ export default function Home() {
 
   // Premium Transformation Journey active step state
   const [activeStep, setActiveStep] = useState(0);
+  const [isAutoPlayingStep, setIsAutoPlayingStep] = useState(true);
+
+  React.useEffect(() => {
+    if (!isAutoPlayingStep) return;
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 4);
+    }, 1000); // Super fast auto-changing interval (1s)
+    return () => clearInterval(interval);
+  }, [isAutoPlayingStep]);
 
   // Active slide index for the slow image showcase
   const [activeSlide, setActiveSlide] = useState(0);
@@ -1185,7 +1194,10 @@ export default function Home() {
                   <div
                     key={idx}
                     id={`premium-journey-step-${idx}`}
-                    onClick={() => setActiveStep(idx)}
+                    onClick={() => {
+                      setActiveStep(idx);
+                      setIsAutoPlayingStep(false); // Stop autoplay when clicked
+                    }}
                     className={`relative flex flex-col items-center text-center p-8 rounded-[24px] cursor-pointer transition-all duration-500 bg-white border ${
                       isActive 
                         ? 'border-[#2563EB] shadow-[0_24px_50px_rgba(37,99,235,0.15)] scale-[1.03] z-10' 
@@ -1227,13 +1239,18 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* Step Title */}
-                    <div className="space-y-1">
+                    {/* Step Title & Sub */}
+                    <div className="space-y-3 mt-1">
                       <h4 className={`font-sans font-black text-sm sm:text-base uppercase tracking-widest transition-colors duration-700 ${
                         isActive ? 'text-[#2563EB]' : 'text-slate-900'
                       }`}>
                         {step.title}
                       </h4>
+                      <p className={`text-xs sm:text-sm leading-relaxed transition-colors duration-500 max-w-xs ${
+                        isActive ? 'text-slate-600 font-medium' : 'text-slate-400 font-normal'
+                      }`}>
+                        {step.sub}
+                      </p>
                     </div>
                   </div>
                 );
