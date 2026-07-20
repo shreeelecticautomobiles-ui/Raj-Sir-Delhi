@@ -87,10 +87,10 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
                       <Link to="/gallery" className="hover:text-blue-400 transition-colors">Photo Gallery</Link>
                     </li>
                     <li>
-                      <Link to="/courses" className="hover:text-blue-400 transition-colors">Batch Timings</Link>
+                      <Link to="/courses" className="hover:text-blue-400 transition-colors">Courses</Link>
                     </li>
                     <li>
-                      <Link to="/about" className="hover:text-blue-400 transition-colors">Our Methodology</Link>
+                      <Link to="/about" className="hover:text-blue-400 transition-colors">About</Link>
                     </li>
                   </ul>
                 </div>
