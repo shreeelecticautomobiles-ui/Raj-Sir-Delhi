@@ -41,7 +41,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const heroSlides = [
   {
-    image: 'https://i.ibb.co/VYhsqdm5/Screenshot-2026-07-19-131240.png',
+    image: 'https://i.ibb.co/842f6CFL/Gemini-Generated-Image-62rzta62rzta62rz.png',
     title: 'Raj Sir Teaching Students',
     tag: 'TRANSFORMATION',
     description: 'Our proprietary Hindi-to-English translation method lets you speak naturally without memorizing rules.'
@@ -65,7 +65,7 @@ const heroSlides = [
     description: 'Comprehensive preparation for official Goethe Institute exams under certified instruction.'
   },
   {
-    image: 'https://i.ibb.co/RpJGw9cz/IMG-20260718-WA0033.jpg',
+    image: 'https://i.ibb.co/VYhsqdm5/Screenshot-2026-07-19-131240.png',
     title: 'Chinese Language Course',
     tag: 'Pesonality Development',
     description: 'Syllabus-focused Chinese language mastery, tailored for global career advancement.'
