@@ -181,7 +181,7 @@ export default function Courses({ courseType }: CoursesProps = {}) {
                 
                 <div className="pt-2">
                   <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Class Timings</p>
-                  <p className="text-sm font-semibold text-text-primary mt-0.5">Morning Batch: 8:00 AM - 10:00 AM</p>
+                  <p className="text-sm font-semibold text-text-primary mt-0.5">Morning Batch: 7:00 AM - 9:00 AM</p>
                 </div>
 
                 <ul className="space-y-3 pt-6 border-t border-gray-200 text-xs text-text-secondary">

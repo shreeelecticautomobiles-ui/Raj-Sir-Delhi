@@ -323,8 +323,8 @@ export default function Home() {
           "Saturday",
           "Sunday"
         ],
-        "opens": "08:00",
-        "closes": "20:30"
+        "opens": "07:00",
+        "closes": "20:00"
       },
       "sameAs": [
         "https://www.youtube.com/c/rajsirdelhi",

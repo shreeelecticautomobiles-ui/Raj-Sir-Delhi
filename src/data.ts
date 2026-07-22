@@ -82,7 +82,7 @@ export const courses: Course[] = [
     id: 'c-english',
     title: 'Master Spoken English',
     duration: '3 Months',
-    timing: 'Mon-Fri (10:00 AM or 6:00 PM)',
+    timing: 'Mon-Sat (7:00 AM - 8:00 PM)',
     badge: 'Best Seller',
     isBestSeller: true,
     features: [
@@ -171,6 +171,13 @@ export const videos: Video[] = [
 ];
 
 export const galleryItems: GalleryItem[] = [
+  {
+    id: 'g-top-1',
+    category: 'Classrooms',
+    title: 'Interactive Classroom Practice Session',
+    image: 'https://i.ibb.co/842f6CFL/Gemini-Generated-Image-62rzta62rzta62rz.png',
+    description: 'Raj Sir guiding students through active public speaking and fluency drills in Laxmi Nagar.',
+  },
   {
     id: 'g-1',
     category: 'Classrooms',

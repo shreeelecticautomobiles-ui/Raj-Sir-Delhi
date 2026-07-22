@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Youtube, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, Youtube, Instagram, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   showSeoColumn?: boolean;
@@ -62,6 +62,16 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
+                <a
+                  id="footer-linkedin-social"
+                  href="https://www.linkedin.com/in/raj-sir-delhi-spoken-english-class-rsd-32a51a291?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:bg-blue-600 hover:border-blue-600 transition-all hover:-translate-y-0.5"
+                  aria-label="LinkedIn profile"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
               </div>
             </div>
 
@@ -78,6 +88,12 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
                   <h3 className="font-sans font-bold text-white tracking-widest text-xs uppercase">Quick Links</h3>
                   <ul className="space-y-2.5 text-sm text-slate-300">
                     <li>
+                      <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/about" className="hover:text-blue-400 transition-colors">About Us</Link>
+                    </li>
+                    <li>
                       <Link to="/courses" className="hover:text-blue-400 transition-colors">Our Courses</Link>
                     </li>
                     <li>
@@ -87,10 +103,7 @@ export default function Footer({ showSeoColumn = false }: FooterProps) {
                       <Link to="/gallery" className="hover:text-blue-400 transition-colors">Photo Gallery</Link>
                     </li>
                     <li>
-                      <Link to="/courses" className="hover:text-blue-400 transition-colors">Courses</Link>
-                    </li>
-                    <li>
-                      <Link to="/about" className="hover:text-blue-400 transition-colors">About</Link>
+                      <Link to="/contact" className="hover:text-blue-400 transition-colors">Contact Us</Link>
                     </li>
                   </ul>
                 </div>

@@ -39,7 +39,7 @@ export default function FAQPage() {
     },
     {
       question: 'What are the timings of the classes?',
-      answer: 'To accommodate both college-goers and working professionals, we operate flexible batches throughout the day from 8:00 AM to 8:30 PM. We run morning batches, afternoon practice classes, evening executive batches, and special weekend-only classes for working professionals.',
+      answer: 'To accommodate both college-goers and working professionals, we operate flexible batches throughout the day from 7:00 AM to 8:00 PM. We run morning batches, afternoon practice classes, evening executive batches, and special weekend-only classes for working professionals.',
     },
     {
       question: 'Is there a free demo class available?',

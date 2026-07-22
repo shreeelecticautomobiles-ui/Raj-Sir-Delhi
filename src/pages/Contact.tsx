@@ -84,7 +84,7 @@ export default function Contact() {
             Let's Start Your <span className="bg-gradient-to-r from-[#171C59] via-[#4F46E5] to-[#818CF8] bg-clip-text text-transparent">English Journey</span> Today.
           </h1>
           <p id="contact-subtext" className="text-text-secondary text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Our career counselors are available from 10:00 AM to 8:00 PM daily to evaluate your spoken proficiency level and recommend the best-suited fast-track batches.
+            Our career counselors are available from 7:00 AM to 8:00 PM daily to evaluate your spoken proficiency level and recommend the best-suited fast-track batches.
           </p>
         </div>
       </section>
@@ -222,7 +222,7 @@ export default function Contact() {
               <div id="contact-info-hours" className="bg-bg-main rounded-2xl p-5 border border-gray-100 text-left space-y-2">
                 <Clock className="h-5 w-5 text-primary" />
                 <h4 className="font-sans font-bold text-xs text-text-primary uppercase tracking-wider">Opening Hours</h4>
-                <p className="text-text-secondary text-[11px] leading-relaxed">Mon - Sat: 9:00 AM - 8:00 PM<br />(Sunday Closed)</p>
+                <p className="text-text-secondary text-[11px] leading-relaxed">Mon - Sat: 7:00 AM - 8:00 PM<br />(Class Timings: 7:00 AM - 8:00 PM)</p>
               </div>
 
               {/* Card 3: Phone */}
